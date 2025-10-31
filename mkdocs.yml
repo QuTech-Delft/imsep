@@ -1,0 +1,110 @@
+site_name: Introduction to modern software engineering practices
+site_dir: public
+use_directory_urls: false
+repo_url: https://github.com/QuTech-Delft/imsep
+
+theme:
+  name: material
+  logo: assets/images/qdl-logo-condensed-white.png
+  favicon: assets/images/favicon.ico
+  features:
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tracking
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: qdl
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: qdl-dark
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - assets/js/tablesort.js
+  - assets/js/zoom.js
+  - assets/js/dark-mode.js
+
+extra_css:
+  - assets/css/zoom.css
+  - assets/css/qdl-theme.css
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets:
+      base_path: !relative
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
+
+plugins:
+  - build_plantuml:
+      render: "server"
+      bin_path: "/usr/local/bin/plantuml"
+      server: "http://www.plantuml.com/plantuml"
+      output_format: "svg"
+      diagram_root: "docs/assets/diagrams"
+      output_folder: "out"
+      input_folder: "src"
+      input_extensions: "plantuml"
+      theme_enabled: true
+      theme_folder: "include/themes"
+      theme_light: "light.plantuml"
+      theme_dark: "dark.plantuml"
+  - render_swagger
+  - search
+  - tags
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_bases: false
+            show_root_heading: false
+            show_source: false
+            show_signature: false
+            filters:
+              - "!^_"
+              - "^__"
+            show_category_heading: true
+            show_root_full_path: false
+            show_root_toc_entry: false
+            merge_init_into_class: true
+            group_by_category: false
+
+nav:
+  - Home:
+      - index.md
+  - Software development:
+      - software-development/index.md
+  - Version control:
+      - version-control/index.md
+      - Basic development cycle: version-control/basic-cycle.md
+      - Advanced development cycle: version-control/advanced-cycle.md
+  - Dependency management:
+      - dependencies/index.md
+  - Clean code:
+      - clean-code/index.md
