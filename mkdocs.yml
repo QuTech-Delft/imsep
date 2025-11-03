@@ -108,3 +108,5 @@ nav:
       - dependencies/index.md
   - Clean code:
       - clean-code/index.md
+      - An introduction to testing: clean-code/basic-testing.md
+      - Advanced testing methods: clean-code/advanced-testing.md
