@@ -7,6 +7,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectet
 ```shell
 git config --global user.name "Alfredo Linguini"
 git config --global user.email "a.linguini@ratatouille.fr"
+git config --global core.editor vim
 
 git config credential.helper store
 
