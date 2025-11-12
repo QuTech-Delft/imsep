@@ -31,3 +31,9 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectet
 | 4       | Defined    | Defined level. Software development process for management and engineering are integrated in the organization. Projects tailor their processes from organization’s standards. The processes are qualitative measured and scored.                                                                                                                                  |
 | 5       | Managed    | Managed level. The quality of the software process is quantitatively measured, so it can be evaluated and adjusted when necessary.                                                                                                                                                                                                                                |
 | 6       | Optimizing | Optimizing level - continuous process improvement (based on data collected as described in the managed level, as well as investing in innovation).                                                                                                                                                                                                                |
+
+## Challenge time (...?)
+
+- name commercial-like software, what makes it commercial-like from the users' perspective?
+- name a piece of software you or your team is working on, what level is it now, and what would be needed to raise its maturity level?
+- what do you expect from software you pay for? (I will hint to the fact that QuTech is basically a customer for their software?)
