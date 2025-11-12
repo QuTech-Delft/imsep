@@ -34,3 +34,52 @@ Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque s
 2. Lorem ipsum dolor sit amet consectetur adipiscing elit.
 3. Lorem ipsum dolor sit amet consectetur adipiscing elit.
 4. Lorem ipsum dolor sit amet consectetur adipiscing elit.
+
+## Challenge time (...?)
+
+1. Clone the IMSEP project from GitLab.
+2. Make a feature branch named after the assigned shape (see snippet below).
+3. Add the method and push to GitLab.
+4. Create a merge request.
+5. Check other merge requests.
+6. Merge your own after approval.
+
+```python
+from abc import ABC, abstractmethod
+
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self) -> int:
+        """
+        Calculates the area of the shape.
+
+        Returns:
+            Area of the shape.
+        """
+
+
+class Square(Shape):
+    pass
+
+
+class Rectangle(Shape):
+    pass
+
+
+class Circle(Shape):
+    pass
+
+
+class Elipse(Shape):
+    pass
+
+
+class Triangle(Shape):
+    pass
+
+
+class Trapezoid(Shape):
+    pass
+```

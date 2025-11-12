@@ -86,3 +86,12 @@ Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque s
 ```shell
 cd path/to/dir
 ```
+
+## Challenge time (could be in a ppt?)
+
+1. Create a personal GitLab project (bonus challenge: do not initialise with a README).
+2. Clone project and checkout main.
+3. Switch to a feature branch.
+4. Add a gitignore and update/make the README.
+5. Push the changes to GitLab.
+6. Merge the feature branch with the main branch.
