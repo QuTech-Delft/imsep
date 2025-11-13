@@ -110,6 +110,8 @@ git config --global user.name "<NAME>"
 git config --global user.email "<EMAIL>"
 ```
 
+The configuration can be found in `~/.gitconfig`. The `~` means the path to the home folder of the current user.
+This is usually `C:\users\<USER>` on Windows systems and `/home/<USER>` on Unix-based systems.
 When using Git on Unix-based systems, the following configuration can be useful as well:
 
 ```shell
@@ -141,6 +143,16 @@ git clone <URL>
 
     Most providers offer an HTTPS and an SSH option to clone repositories with. SSH is safer, but requires a more extensive setup,
     which is not covered in this workshop. With HTTPS the user is usually prompted for credentials, or an access token can be used.
+
+After cloning, it could be useful to store the credentials when prompted for them. This way, they don't need to be re-typed every time.
+To configure the helper for the credentials:
+
+```shell
+git config credential.helper store
+```
+
+Note that the `--global` flag is not used, this configuration is only valid for the current repository. 
+The credentials can be found (and deleted) in `~/.git-credentials`. When using SSH, the helper doesn't need to be used.
 
 ### Create a local repository
 

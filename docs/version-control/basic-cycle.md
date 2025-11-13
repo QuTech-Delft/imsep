@@ -5,12 +5,6 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectet
 ## Commands
 
 ```shell
-git config --global user.name "Alfredo Linguini"
-git config --global user.email "a.linguini@ratatouille.fr"
-git config --global core.editor vim
-
-git config credential.helper store
-
 git branch some-branch
 git switch some-branch
 
@@ -31,9 +25,6 @@ git add .
 git commit --message "initial commit"
 git commit -m "initial commit"
 git push
-
-vim ~/.gitconfig
-vim ~/.git-credentials
 ```
 
 ## Branches
