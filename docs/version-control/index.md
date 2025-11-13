@@ -8,9 +8,9 @@ and continues with instructions on how to set it up.
 ## Shells
 
 In this day and age, it is common to have graphical user interfaces (GUI) for almost everything. An interface based on
-typing in commands, known as a command-line interface (CLI) can therefore feel unintuitive at first, but could save time
-with practice. Secondly, for some programs, a CLI is the only option. An example of this is the OS shell. It is a CLI to
-give commands to the OS. This shell differs per OS, and is further described below.
+typing in commands, known as a command-line interface (CLI) can therefore feel unintuitive at first, 
+but could save time compared to a GUI with practice. Secondly, for some tools, a CLI is the only option. 
+An example of this is the OS shell. It is a CLI to interact with the OS. This shell differs per OS, and is further described below.
 
 ### Linux
 
@@ -33,9 +33,14 @@ In the example below, the following commands are executed:
     cat output.txt
     ```
 
-!!! note
+Note that these simple commands are like key-value pairs, but commands are often built like `cli command options`.
+The option can either be in a short format, or spelled-out fully, for better readability. 
+Note that some short-format options don't always have a spelled-out version, and vise versa. E.g. when listing files with the `ls` command,
+the hidden files remain hidden. The `-a` or `--all` option shows these files as well:
 
-    How long would it have taken to execute these steps in a GUI?
+```shell
+ls --all
+```
 
 To master the command-line, these hotkeys can be useful:
 
@@ -44,16 +49,23 @@ To master the command-line, these hotkeys can be useful:
 - `ctrl + a`, go to the start of the line.
 - `ctrl + e`, go to the start of the line.
 - `ctrl + r`, search for a previously-executed command.
+- `left / right`, navigate through the line.
 - `up / down`, go through previously-executed commands in order.
+
+There are many more, which can be found online.
+
+!!! note
+
+    How much longer would it have taken to execute the example in a GUI?
 
 ### MacOS
 
 Current versions of macOS use a slightly different version of the Bash shell, namely the Z-shell. 
-But, for all intends and purposes, it can be assumed identical.
+But, for all intends and purposes, it can be assumed identical for the commands used in this workshop.
 
 ### Windows
 
-The Windows shell (called PowerShell) is completely different from the Bash shell, although some commands can be used identically (like `cd`).
+The Windows shell (called PowerShell) is completely different from the Bash shell, even though some commands can be used identically (like `cd`).
 Keep in mind that the path is defined differently on Windows, namely with `\` as separators, and not `/`.
 When switching frequently between a Unix-based system and Windows, Git Bash can be good alternative to PowerShell and is automatically installed with Git.
 The example below executes the same steps as in the Linux one, but using the PowerShell syntax:
@@ -61,37 +73,85 @@ The example below executes the same steps as in the Linux one, but using the Pow
 !!! example
     
     ```shell
-    cd path/to/dir
+    mkdir ~\some-dir
+    cd ~\some-dir
+    echo "hello world!" > output.txt
+    ls
+    Get-Content output.txt
     ```
 
-<details>
-<summary>Solution</summary>
+The handy hotkeys for (Git) Bash unfortunately do not work in PowerShell.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.
+!!! note
 
-```shell
-cd path/to/dir
-```
-
-</details>
+    `Get-Content` is one of the many built-in functions of PowerShell. When writing PowerShell scripts, it is best
+    practice to use these functions, instead of the Bash equivalent. E.g. `Set-Location` can be used instead of `cd`.
 
 ## Git
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. 
-Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
+Version control starts with a base version of a text-based file, and tracks the changes made over time. 
+When used properly, it enables a controlled flow of new features, and a rollback to a previous version will always be 
+possible. Next to these major benefits, it offers a complete history of the project, including its authors.
+At some point, multiple people could be working in the same file, with many more on the same project. Version control
+ensures the changes are applied in a controlled fashion, instead of becoming an incomprehensible mess.
+
+Git is the most commonly-used CLI tool to manage version control. Normally, the repository is stored in a remote location,
+like [GitHub](https://github.com/), and collaborators copy this repository locally to contribute to the project. This process is called "cloning".
+With the desired changes made, the contributors then "push" their changes to the remote repository. 
+This way of working is common practice among software development teams, but even when working individually, 
+using this process can speed up development and safeguard against mistakes.
 
 ### Configure Git
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.
+Git only requires a few configurations before it can be used, which can be achieved with the following command:
 
-### Create a local repository
+```shell
+git config --global user.name "<NAME>"
+git config --global user.email "<EMAIL>"
+```
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.
+When using Git on Unix-based systems, the following configuration can be useful as well:
+
+```shell
+git config --global core.editor vim
+```
+
+[Vim](https://www.vim.org/) is a terminal user interface (TUI), which sits between a CLI and a GUI. 
+It offers an interface to read and edit text, but the commands still have to be typed. 
+The following commands are used in this workshop:
+
+- `:`, start a command.
+- `esc`, clear the command or exit editing mode.
+- `i`, enter editing mode.
+- `:wq`, save the changes and exit.
+- `:q!`, discard the changes and exit.
+
+Like the Bash hotkeys, there are many more commands, which can be found online.
 
 ### Clone a remote repository
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.
+Most projects start with an initialised remote repository. Initialised means a default branch is available, usually with a file like a README.
+The concept of branches is covered in the next chapter of this workshop. To clone a remote repository:
+
+```shell
+git clone <URL>
+```
+
+!!! note
+
+    Most providers offer an HTTPS and an SSH option to clone repositories with. SSH is safer, but requires a more extensive setup,
+    which is not covered in this workshop. With HTTPS the user is usually prompted for credentials, or an access token can be used.
+
+### Create a local repository
+
+It is possible to start a local repository with Git, but this is hardly used, as most development is managed in a remote 
+repository. To initialise a local repository in the current directory:
+
+```shell
+git init
+```
 
 ## Further reading
 
-
+Next up is the [basic work cycle](./basic-cycle.md) with Git. In this chapter the frequently used commands are discussed to create changes in the repository. 
+The subsequent [chapter](./advanced-cycle.md) delves further into Git with more advanced scenarios, like merge conflicts and code reviews.
