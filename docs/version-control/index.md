@@ -136,7 +136,7 @@ Most projects start with an initialised remote repository. Initialised means a d
 The concept of branches is covered in the next chapter of this workshop. To clone a remote repository:
 
 ```shell
-git clone <URL>
+git clone "<URL>"
 ```
 
 !!! note

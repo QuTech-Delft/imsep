@@ -2,6 +2,18 @@
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.
 
+## Commands
+
+```shell
+git push --set-upstream origin some-branch
+git push -u origin some-branch
+
+git push origin -d some-branch
+git push origin -D some-branch
+
+git push
+```
+
 ## Branches
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. 
