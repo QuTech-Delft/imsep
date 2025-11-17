@@ -1,6 +1,6 @@
 # Basic development cycle
 
-This page is a continuation of the version control chapter, and addresses the introductory topics related to git:
+This page is a continuation of the version control chapter, and addresses the introductory topics related to Git:
 
 - What are branches, and how can a simple model be set up for individual development?
 - How can changes be made in the repository?

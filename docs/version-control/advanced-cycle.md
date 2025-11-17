@@ -1,6 +1,11 @@
 # Advanced development cycle
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.
+This page is a continuation of the version control chapter, and addresses the more advanced topics related to Git:
+
+- How can a branch model be set up for collaborative development?
+- What are the causes of merge conflicts, and how can they be resolved?
+- How to protect branches, and use merge requests to change them?
+- How to review code from other collaborators?
 
 ## Commands
 
