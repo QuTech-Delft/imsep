@@ -1,9 +1,13 @@
 # Version control
 
-This chapter of the workshop aims to answer questions related to version control. The [shells](#shells) section explains what shells are, 
-and how they differ for each operating system (OS). It is a prerequisite for using Git from the command-line,
-and is therefore addressed in this chapter. The subsequent [Git](#git) section starts with a summary of what version control is about,
-and continues with instructions on how to set it up.
+This chapter of the workshop aims to answer questions related to version control. On this page the following topics are addressed:
+
+- What are shells, and how do they differ per operating system (OS)?
+- What is Git, and how can it be set up?
+
+!!! note
+
+    Shells are a prerequisite for using Git from the command-line, and is therefore addressed in this chapter. 
 
 ## Shells
 
@@ -156,10 +160,12 @@ The credentials can be found (and deleted) in `~/.git-credentials`. When using S
 
 ### Create a local repository
 
-It is possible to start a local repository with Git, but this is hardly used, as most development is managed in a remote 
-repository. To initialise a local repository in the current directory:
+It is possible to start a local repository with Git, use its version control features, and optionally push it to a remote repository later. 
+To initialise a local repository in the current directory:
 
 ```shell
+mkdir "<REPOSITORY>"
+cd "<REPOSITORY>"
 git init
 ```
 

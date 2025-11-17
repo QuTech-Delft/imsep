@@ -1,9 +1,15 @@
 # Basic development cycle
 
-As Git is extremely popular, it is part of most integrated development environments (IDE) with a simplified GUI.
-This workflow can be intuitive and as fast as the CLI, and is likely the preferred option in the long term.
-The following sections describe the workflow using the original Git commands, as these are used by the IDE as well,
-and knowing these commands gives a better understanding of how Git works.
+This page is a continuation of the version control chapter, and addresses the introductory topics related to git:
+
+- What are branches, and how can a simple model be set up for individual development?
+- How can changes be made in the repository?
+- How can files be restored to a previous version?
+- How can files be exempted from version control?
+
+As Git is extremely popular, it is part of most integrated development environments (IDE) as a GUI.
+This can feel more intuitive at first, but the following sections describe the workflow using the original Git commands. 
+These are used by the IDE as well, and knowing them gives a better understanding of how Git works.
 
 ## Branches
 
