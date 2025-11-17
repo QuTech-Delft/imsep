@@ -99,8 +99,9 @@ possible. Next to these major benefits, it offers a complete history of the proj
 At some point, multiple people could be working in the same file, with many more on the same project. Version control
 ensures the changes are applied in a controlled fashion, instead of becoming an incomprehensible mess.
 
-Git is the most commonly-used CLI tool to manage version control. Normally, the repository is stored in a remote location,
-like [GitHub](https://github.com/), and collaborators copy this repository locally to contribute to the project. This process is called "cloning".
+Git is the most commonly-used CLI tool to manage version control. It is applied to a special storage system called a repository.
+Normally, the repository is stored in a remote location, like [GitHub](https://github.com/) and [GitLab](https://gitlab.com/), 
+and collaborators copy this repository locally to contribute to the project. This process is called "cloning".
 With the desired changes made, the contributors then "push" their changes to the remote repository. 
 This way of working is common practice among software development teams, but even when working individually, 
 using this process can speed up development and safeguard against mistakes.
