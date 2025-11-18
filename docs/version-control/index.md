@@ -1,13 +1,12 @@
 # Version control
 
-This chapter of the workshop aims to answer questions related to version control. On this page the following topics are addressed:
+!!! abstract "Overview"
 
-- What are shells, and how do they differ per operating system (OS)?
-- What is Git, and how can it be set up?
+    - What are shells, and how do they differ per operating system (OS)?
+    - What is Git, and how can it be set up?
 
-!!! note
-
-    Shells are a prerequisite for using Git from the command-line, and is therefore addressed in this chapter. 
+An understanding of shells is a prerequisite for using Git from the command-line.
+The topic is therefore addressed at the start of this chapter. 
 
 ## Shells
 
@@ -70,15 +69,14 @@ But, for all intends and purposes, it can be assumed identical for the commands 
 ### Windows
 
 The Windows shell (called PowerShell) is completely different from the Bash shell, even though some commands can be used identically (like `cd`).
-Keep in mind that the path is defined differently on Windows, namely with `\` as separators, and not `/`.
 When switching frequently between a Unix-based system and Windows, Git Bash can be good alternative to PowerShell and is automatically installed with Git.
 The example below executes the same steps as in the Linux one, but using the PowerShell syntax:
 
 !!! example
     
     ```shell
-    mkdir ~\some-dir
-    cd ~\some-dir
+    mkdir ~/some-dir
+    cd ~/some-dir
     echo "hello world!" > output.txt
     ls
     Get-Content output.txt

@@ -1,11 +1,11 @@
 # Basic development cycle
 
-This page is a continuation of the version control chapter, and addresses the introductory topics related to Git:
+!!! abstract "Overview"
 
-- What are branches, and how can a simple model be set up for individual development?
-- How can changes be made in the repository?
-- How can files be restored to a previous version?
-- How can files be exempted from version control?
+    - What are branches, and how can a simple model be set up for individual development?
+    - How can changes be made in the repository?
+    - How can files be restored to a previous version?
+    - How can files be exempted from version control?
 
 As Git is extremely popular, it is part of most integrated development environments (IDE) as a GUI.
 This can feel more intuitive at first, but the following sections describe the workflow using the original Git commands. 
@@ -117,14 +117,11 @@ These patterns can be defined the `.gitignore` file, and Git will automatically 
     
     What is the patterns to ignore the `.idea` folder in the root directory, but not `idea.txt`?
 
-<details>
-<summary>Solution</summary>
-
-```text
-/.idea
-```
-
-</details>
+??? Solution
+    
+    ```text
+    /.idea
+    ```
 
 ## Merging
 
@@ -142,12 +139,3 @@ After a successful merge, first check if the correct branch is checked out with 
 ```shell
 git branch --delete "feature"
 ```
-
-## Challenge time (could be in a ppt?)
-
-1. Create a personal GitLab project (bonus challenge: do not initialise with a README).
-2. Clone project and checkout main.
-3. Switch to a feature branch.
-4. Add a gitignore and update/make the README.
-5. Push the changes to GitLab.
-6. Merge the feature branch with the main branch.
