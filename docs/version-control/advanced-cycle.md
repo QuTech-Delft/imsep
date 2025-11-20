@@ -59,7 +59,7 @@ git push origin -d "feature"
 git push origin -D "feature"
 ```
 
-The first command pushes a branch delete, for which Git asks a confirmation. The second command confirms this push.
+The first command pushes a branch delete, for which Git sometimes asks for a confirmation. The second command confirms this push.
 
 !!! note
 
