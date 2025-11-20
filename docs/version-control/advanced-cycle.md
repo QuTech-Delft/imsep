@@ -70,21 +70,10 @@ The first command pushes a branch delete, for which Git sometimes asks for a con
 As other people could have pushed changes, it is a good habit to frequently check for changes made to the repository.
 The first command checks for changes, the second command checks for changes and merges them in the current local branch:
 
-another-example
-example-change
-
 ```shell
 git fetch
 git pull
 ```
-
-!!! note
-
-    <<<<<<< HEAD
-    another-example
-    =======
-    example-change
-    >>>>>>> example
 
 !!! warning
 
@@ -104,16 +93,45 @@ it will open the text editor Nano by default to resolve the conflicts by hand.
 This program is pure terror and should be abolished from the known universe and beyond.
 
 To demonstrate such a conflict, say two developers have been adding changes to the `.gitignore` file. The first developer
-merges with the default branch without problems. As the second developer tries to merge as well, Git prompts to resolve 
-the changes made in both the default and feature branches. 
+merges with the default branch (`main`) without problems. As the second developer tries to merge as well, Git prompts to resolve 
+the changes made in both the default and feature branches:
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. 
-Vitae pellentesque sem placerat in id cursus mi. Cursus mi pretium tellus duis convallis tempus leo. Tempus leo eu aenean sed diam urna tempor. 
-Urna tempor pulvinar vivamus fringilla lacus nec metus.
+!!! warning "Git"
 
-```shell
-cd path/to/dir
-```
+    ``` text
+    CONFLICT (content): Merge conflict in .gitignore
+    Automatic merge failed; fix conflicts and then commit the result.
+    ```
+
+During the merge, the `.gitignore` file will look like this:
+
+!!! note ".gitignore"
+
+    ```text
+    <<<<<<< HEAD
+    change(s) from second developer
+    =======
+    change(s) from first developer
+    >>>>>>> main
+    ```
+
+`<<<<<<< HEAD` marks the start of the changes in the current branch. For the second developer, this would be the local feature branch. 
+`=======` marks the end of the changes in the current branch, and the start of the changes made in the other branch (`main`).
+`>>>>>>> main` marks the end of the other changes.
+
+It is up to the second developer to resolve the conflict, by editing the `.gitignore` file and marking the issue as resolved.
+This can be done by editing the file in a text editor or in the GUI provided by an IDE. In both cases, the file should look like this in the end:
+
+!!! note ".gitignore"
+
+    ```text
+    change(s) from first developer
+    change(s) from second developer
+    ```
+
+Note that the mark blocks like `<<<<<<< HEAD` have to be manually removed. After, the standard procedure for commiting changes can be followed,
+and the conflict is resolved. When merge conflicts get more complex, e.g. between blocks of code, and across multiple files, a GUI can be preferred. 
+It usually excels in giving an overview of what needs to be fixed where compared to the commandline.
 
 ## Merge requests
 
