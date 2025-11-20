@@ -136,7 +136,7 @@ Like the Bash hotkeys, there are many more commands, which can be found online.
 ### Clone a remote repository
 
 Most projects start with an initialised remote repository. Initialised means a default branch is available, usually with a file like a README.
-The concept of branches is covered in the next chapter of this workshop. To clone a remote repository:
+The concept of branches is covered in the next section of this workshop. To clone a remote repository:
 
 ```shell
 git clone "<URL>"
@@ -170,5 +170,5 @@ git init
 
 ## Further reading
 
-Next up is the [basic work cycle](./basic-cycle.md) with Git. In this chapter the frequently used commands are discussed to create changes in the repository. 
-The subsequent [chapter](./advanced-cycle.md) delves further into Git with more advanced scenarios, like merge conflicts and code reviews.
+Next up is the [basic work cycle](./basic-cycle.md) with Git. In this section, frequently used commands are discussed to create changes in the repository. 
+The subsequent [section](./advanced-cycle.md) delves further into Git with more advanced scenarios, like merge conflicts and code reviews.

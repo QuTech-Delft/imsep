@@ -13,13 +13,13 @@ These are used by the IDE as well, and knowing them gives a better understanding
 
 ## Branches
 
-When the repository is initialised, a default branch is created, usually named "main" or "master". Apart from the initial setup perhaps,
-it is good practice to always create a new branch from the default branch before starting development. 
-This way of branching gives a clear oversight of what is developed where, by whom, etc. and is depicted below.
+When the repository is initialised, a default branch is created, usually named "main" or "master". Apart from the initial setup,
+it is good practice to create a new branch from the default branch before starting any form of development. 
+This way of branching gives a clear oversight of what is developed where, as depicted below.
 
 ![Basic cycle](../assets/images/git_1.jpg)
 
-The explanation of this work cycle does not depend on a remote repository, and therefore a local repository will suffice. 
+For this part of the workshop, a local repository will suffice. 
 The snippet below makes a new directory, creates a local Git repository, and creates the default branch:
 
 ```shell
@@ -30,7 +30,7 @@ git init
 
 !!! note
 
-    All the snippets given in this chapter work in both Bash and PowerShell.
+    All the snippets given in this section work in both Bash and PowerShell.
 
 The second step is to create a new branch from the default branch. There are two ways to do this, with the second option
 being a shorthand for the first one:
@@ -66,7 +66,7 @@ git status
 
 The next step is to add the file to the staging area. If you think of Git as taking snapshots of changes over the life of a project, 
 `git add` specifies what will go in a snapshot (the staging area), and `git commit` then actually takes the snapshot, 
-and makes a permanent record of it as a commit. When adding untracked files, it is best to add them individually. 
+making a permanent record of it as a commit. When adding untracked files, it is best to add them individually. 
 There is also an option to add all files at once to Git, but this could easily include files which should be [ignored](#ignoring-files):
 
 ```shell
@@ -84,12 +84,13 @@ To see if everything went as expected, the `git status` command can be called ag
 With new changes, the same cycle is repeated until the feature is completed and the branch can be [merged](#merging) into the default branch. 
 
 Git also has a command to check the differences within a changed file (`git diff`), and logs with all commits (`git log`), 
-but with realistic code changes spread over multiple files, this can quickly become incomprehensible. It is recommended to use a GUI for this.
+but with realistic code changes spread over multiple files, the output of these commands can become difficult to interpret. 
+It is recommended to use a GUI for this.
 
 ## Restoring files
 
 Often it can be useful to make temporary changed to code, simply to check something, or for debugging purposes. 
-Git offers a neat command to immediately restore the file to the version stored in the current branch:
+Git offers a command to immediately restore the file to the version stored in the current branch:
 
 ```shell
 git restore "<FILE>"
@@ -105,17 +106,18 @@ In both cases, `git status` should reflect the intended recovery.
 
 ## Ignoring files
 
-When working with large repositories, and/or a variety of tools that create local files, the Git status page can quickly become a mess filled with files. 
-Having to select the right file each time would be an arduous job, and in this scenario the ignore functionality comes into its own.
-Files and/or directories can be ignored based on a pattern, of which the following are useful to remember:
+When working with large repositories, and/or a variety of tools that create local files, the Git status page can quickly become filled with files, 
+of which a large portion should not be commited. Having to select the right file each time would be an arduous job, 
+and in this scenario the ignore functionality comes into its own. Files and/or directories can be ignored based on a pattern, 
+of which the following are useful to remember:
 
 - `/hello`, the "hello" directory in the root directory is ignored.
 - `hello`, anything named "hello" in the root directory is ignored.
 - `*hello*`, anything that contains "hello" in the root directory is ignored.
 - `**/*hello*`, anything that contains "hello" in any directory is ignored.
 
-These patterns can be defined the `.gitignore` file, and Git will automatically pick up the items to ignore.
-`git status --ignored` can be used to see the ignored files.
+These patterns can be defined the `.gitignore` file, and Git automatically picks up the items to ignore.
+The `git status --ignored` command can be used to see the ignored files.
 
 !!! exercise
     
@@ -129,8 +131,8 @@ These patterns can be defined the `.gitignore` file, and Git will automatically 
 
 ## Merging
 
-When developing in a single branch at the time, merging isn't that exciting. This becomes a different story when 
-collaborating with others, especially on the same piece of code. Chances of getting a [merge conflict](advanced-cycle.md/#merge-conflicts) in this scenario are high.
+When developing in a single branch at the time, merging is straight-forward. This becomes a different story when 
+collaborating with others, especially on the same piece of code. Chances of getting a [merge conflict](advanced-cycle.md/#merge-conflicts) in these scenarios are high.
 For now, a branch can simply be merged into the default branch with the following command:
 
 ```shell
@@ -143,3 +145,7 @@ After a successful merge, first check if the correct branch is checked out with 
 ```shell
 git branch --delete "feature"
 ```
+
+## Further reading
+
+Next up is the [advanced work cycle](./advanced-cycle.md), which delves further into Git with more advanced scenarios, like merge conflicts and code reviews.

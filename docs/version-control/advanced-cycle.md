@@ -88,7 +88,7 @@ but rather with `git merge "<DEFAULT>"`. If identical files have changed in both
 
 When Git detects different changes in two different branches, e.g. a feature branch and the default branch, 
 or two different versions of the same branch, e.g. a local version and the origin, it warns about a merge conflict. 
-Git needs user inputs to resolve the conflict and merge successfully. When executing Git commands from the commandline, 
+Git needs user inputs to resolve the conflict and merge successfully. When executing Git commands from the command-line, 
 it will open the text editor Nano by default to resolve the conflicts by hand. 
 This program is pure terror and should be abolished from the known universe and beyond.
 
@@ -131,20 +131,43 @@ This can be done by editing the file in a text editor or in the GUI provided by 
 
 Note that the mark blocks like `<<<<<<< HEAD` have to be manually removed. After, the standard procedure for commiting changes can be followed,
 and the conflict is resolved. When merge conflicts get more complex, e.g. between blocks of code, and across multiple files, a GUI can be preferred. 
-It usually excels in giving an overview of what needs to be fixed where compared to the commandline.
+It usually excels in giving an overview of what needs to be fixed where compared to the command-line.
 
 ## Merge requests
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. 
-Vitae pellentesque sem placerat in id cursus mi. Cursus mi pretium tellus duis convallis tempus leo. Tempus leo eu aenean sed diam urna tempor. 
-Urna tempor pulvinar vivamus fringilla lacus nec metus.
+In collaborative repositories, the default branch should be protected. This means no changes can be directly pushed to it,
+and merges can only occur when certain conditions have met, e.g. an approval after a [code review](#code-reviews).
+A merge request is initiated through a GUI in the remote repository. This can be a webpage, via an IDE, or a separate program, e.g. 
+[GitHub desktop](https://desktop.github.com). 
+
+The merge request can be coupled to a CI/CD pipeline, which is an automated execution
+of a number of tasks. This can be a task which runs the code tests, checks the dependencies etc. 
+Setting up such a pipeline is beyond the scope of this workshop. An open merge request is a sign for other developers that the suggested changes can be reviewed.
 
 ## Code reviews
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. 
-Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
+Depending on the maturity of the project and/or developers, the code review can serve multiple functions. 
+[Mature](../software-development/index.md#qsmm) projects allows reviews to focus on their primary purpose, namely checking 
+if the suggested change(s) are optimal with respect to the desired feature(s) and if it could lead to unforeseen problems.
 
-1. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-2. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-3. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-4. Lorem ipsum dolor sit amet consectetur adipiscing elit.
+When reviewing codes from inexperienced developers, or vise versa, it could be useful to understand the syntax, 
+and simply ask questions about what is happening. This way, either of them can learn something new, and the proficiency of the team increases. 
+Immature projects require extensive reviews, which can include the following additional items:
+
+- understanding the philosophy behind the changes.
+- writing and running tests to check for breaking changes.
+- checking syntax.
+
+As review remarks are often made as comments online, it is common to make simple ones concise and to the point.
+However, this could be perceived as pedantic, and even a little patronising when receiving a few of these comments in sequence. For example:
+
+1. "function names must be lowercase"
+2. "docstring does not include parameters"
+3. "why don't you use Path library here?"
+
+Especially teams that do not have code quality standards defined beforehand, can have comments related to code style and usage of dependencies.
+Code reviews are for the most part about the bigger picture. If there are consistent patterns throughout multiple comments, 
+it can be better to summarise it in a single one, or make the remark in-person.
+
+There can also be remarks that are far from tedious, and have a large impact on the suggested changes. In this scenario,
+it can be also beneficial to have a small meeting in-person, instead of writing an extensive comment. 
