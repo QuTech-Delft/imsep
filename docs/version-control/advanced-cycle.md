@@ -17,6 +17,8 @@ depicted in the image below.
 
 ![Advanced cycle](../assets/images/git_2.jpg)
 
+### Pushing changes
+
 As mentioned above, development is often done in a remote repository, and developers need to push their changes to it.
 When commiting changes, only the local branch is affected. The remote version needs to be updated as well. 
 In Git, this remote version is called the "origin". When using the `git clone` command, the origin of the default branch is
@@ -63,6 +65,8 @@ The first command pushes a branch delete, for which Git asks a confirmation. The
 
     Most repository providers have a feature to automatically delete a branch after it is merged.
 
+### Getting up-to-date
+
 As other people could have pushed changes, it is a good habit to frequently check for changes made to the repository.
 The first command checks for changes, the second command checks for changes and merges them in the current local branch:
 
@@ -76,9 +80,25 @@ git pull
     When working with multiple people in the same branch, or working from multiple devices, e.g. a work laptop and a
     PC at home, the `git pull` command can give rise to a merge conflict if not careful.
 
+Additionally, before a feature branch can be merged, it needs to be "up-to-date" with the changes from the default branch.
+In this case, the default branch is first merged into the feature branch. Note that this update is not done with the `git pull` command, 
+but rather with `git merge "<DEFAULT>"`. If identical files have changed in both branches, it will lead to a merge conflict.
+
 ## Merge conflicts
 
-Jajajajajajajajaj
+When Git detects different changes in two different branches, e.g. a feature branch and the default branch, 
+or two different versions of the same branch, e.g. a local version and the origin, it warns about a merge conflict. 
+Git needs user inputs to resolve the conflict and merge successfully. When executing Git commands from the commandline, 
+it will open the text editor Nano by default to resolve the conflicts by hand. 
+This program is pure terror and should be abolished from the known universe and beyond.
+
+To demonstrate such a conflict, say two developers have been adding changes to the `.gitignore` file. The first developer
+merges with the default branch without problems. As the second developer tries to merge as well, Git prompts to resolve 
+the changes made in both the default and feature branches. 
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. 
+Vitae pellentesque sem placerat in id cursus mi. Cursus mi pretium tellus duis convallis tempus leo. Tempus leo eu aenean sed diam urna tempor. 
+Urna tempor pulvinar vivamus fringilla lacus nec metus.
 
 ```shell
 cd path/to/dir
