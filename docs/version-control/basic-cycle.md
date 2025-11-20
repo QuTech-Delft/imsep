@@ -44,6 +44,10 @@ git switch "feature"
 git switch --create "feature"
 ```
 
+!!! note
+
+    The `--create` flag can be replaced with the short version `-c`.
+
 ## Commiting changes
 
 Within the feature branch, code can be written, documentation can be added etc. To show the way to commit these changes,
