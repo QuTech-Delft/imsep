@@ -70,6 +70,8 @@ The first command pushes a branch delete, for which Git sometimes asks for a con
 As other people could have pushed changes, it is a good habit to frequently check for changes made to the repository.
 The first command checks for changes, the second command checks for changes and merges them in the current local branch:
 
+example-change
+
 ```shell
 git fetch
 git pull
