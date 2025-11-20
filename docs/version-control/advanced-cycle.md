@@ -71,11 +71,20 @@ As other people could have pushed changes, it is a good habit to frequently chec
 The first command checks for changes, the second command checks for changes and merges them in the current local branch:
 
 another-example
+example-change
 
 ```shell
 git fetch
 git pull
 ```
+
+!!! note
+
+    <<<<<<< HEAD
+    another-example
+    =======
+    example-change
+    >>>>>>> example
 
 !!! warning
 
