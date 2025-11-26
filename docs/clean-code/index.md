@@ -353,4 +353,52 @@ Sometimes, it can be an arduous job to correctly type-hint code (especially with
 
 ## Docstrings
 
-Introduction to type-hinting, different docstring formats, what should(n't) be in a docstring.
+Certain elements should always be in a docstring, namely:
+
+- A brief description of what the function does.
+- What does the function return, if anything?
+- What are the inputs, their type, with a brief description.
+
+Optionally, it is nice to have:
+
+- A list of the errors which can be raised with their description.
+- If the docstring start to turn into a story, or if it simply cannot be properly described with text alone, it is recommended to include a "See Also" section.
+It can include a link to the design documentation, research paper, etc.
+- Examples of what the function calculates based on the inputs, e.g.:
+
+    ```python
+    from numpy import arange, argmax, round as numpy_round, zeros
+    from numpy.typing import ndarray
+    
+    def convert_array(inputs: ndarray) -> ndarray:
+        """
+        Convert a floating point array into an array with one true index per row.
+    
+        Args:
+            inputs: Array containing floating point values between 0 and 1.
+    
+        Returns:
+            Array with one true index per row.
+    
+        Examples:
+            - [[0.4], [0.5], [0.6]] is converted to [[0], [0], [1]].
+            - [[0.1, 0.2, 0.7], [0.4, 0.4, 0.2], [0.3, 0.3, 0.4]] is converted to [[0, 0, 1], [1, 0, 0], [0, 0, 1]].
+        """
+        if inputs.shape[-1] > 1:
+            maximums = argmax(inputs, axis=1)
+    
+            outputs = zeros(shape=inputs.shape)
+            outputs[arange(outputs.shape[0]), maximums] = 1
+    
+        else:
+            outputs = numpy_round(inputs)
+    
+        return outputs
+    ```
+  
+    In the above example, it would be difficult to understand the description and associated syntax. The examples make the calculations feel more intuitive.
+
+## Further reading
+
+Next up is the [basic work cycle](./basic-cycle.md) with Git. In this section, frequently used commands are discussed to create changes in the repository. 
+The subsequent [section](./advanced-cycle.md) delves further into Git with more advanced scenarios, like merge conflicts and code reviews.
