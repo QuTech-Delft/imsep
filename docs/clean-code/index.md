@@ -10,7 +10,7 @@ This is the difference between “clean code” and messy code in programming. I
 
 !!! note
 
-    The code examples used in this section are written in Python, but the principes they try to outline are applicable to any language!
+    The code examples used on this page are written in Python, but the principes they try to outline are applicable to any language!
 
 ## Design
 
@@ -400,5 +400,5 @@ It can include a link to the design documentation, research paper, etc.
 
 ## Further reading
 
-Next up is the [basic work cycle](./basic-cycle.md) with Git. In this section, frequently used commands are discussed to create changes in the repository. 
-The subsequent [section](./advanced-cycle.md) delves further into Git with more advanced scenarios, like merge conflicts and code reviews.
+[Next up](./basic-testing.md) is an introduction to code testing. On this page, unit testing is covered, with an introduction to system tests. 
+The subsequent [page](./advanced-testing.md) delves further into testing with more advanced topics, like mocking and code coverage.
