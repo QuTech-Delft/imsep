@@ -285,7 +285,71 @@ The following examples highlight these with a short example in Python.
 
 ## Quality
 
-Tools like pylint etc.
+Next to the styling and readability, the actual quality of the code is of importance as well. This can range from unnecessary duplication, 
+unused variables, to more error-prone mistakes, like re-declaring the same variable with a different type. This would be impossible in a language as C++,
+but is allowed in a dynamically-typed language like Python. 
+
+Various tools exist to help improve the code quality, and mature teams usually have these checks enforced. For Python,
+a tool like [Pylint](https://www.pylint.org/) can help identify "[code smells](https://refactoring.guru/refactoring/smells)" and most IDEs have built-in quality checks as well.
+Running it on the following piece of code will result in a few suggestions:
+
+!!! example "bad_example.py"
+    
+    ```python
+    import math
+    
+    def addNumbers(a, b): return a + b
+    
+    
+    def divide_numbers(a, b):
+        if b == 0:
+            print("Cannot divide by zero")
+            return None
+        return a / b
+    ```
+    
+    ```text
+    ************* Module bad_example
+    bad_example.py:34:0: C0304: Final newline missing (missing-final-newline)
+    bad_example.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+    bad_example.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+    bad_example.py:4:0: C0103: Function name "addNumbers" doesn't conform to snake_case naming style (invalid-name)
+    bad_example.py:4:22: C0321: More than one statement on a single line (multiple-statements)
+    bad_example.py:7:0: C0116: Missing function or method docstring (missing-function-docstring)
+    bad_example.py:1:0: W0611: Unused import math (unused-import)
+    
+    -----------------------------------
+    Your code has been rated at 5.91/10
+    ```
+
+For Python specifically, type-hinting is good practice. It is not enforced, but it makes the code:
+
+1. easier to use.
+2. less likely to crash.
+3. help developers identify mistakes in their code.
+
+A full explanation of type-hinting is beyond the scope of this workshop, but the basics can be applied easily. 
+Each parameter and return value should be type-hinted, and cases when it can be unclear what the type should be:
+
+```python
+class MyClass:
+
+    def __init__(self, a: int, b: int) -> None:
+        self.a = a
+        self.b = b
+        self.c: list[int] = []
+    
+    def my_method(self, c: int) -> int:
+        self.c.append(c)
+        return self.a + self.b + sum(self.c)
+
+
+def my_function(my_class: MyClass) -> None:
+    print(my_class.a + my_class.b)
+```
+
+[Mypy](https://mypy.readthedocs.io/en/stable/#) can be used for both checking type-hinting and explanations as to why certain variables are incorrectly typed.
+Sometimes, it can be an arduous job to correctly type-hint code (especially with Mypy in "strict" mode), but it will always lead to better code quality.
 
 ## Docstrings
 
