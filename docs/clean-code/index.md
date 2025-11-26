@@ -400,5 +400,5 @@ It can include a link to the design documentation, research paper, etc.
 
 ## Further reading
 
-[Next up](./basic-testing.md) is an introduction to code testing. On this page, unit testing is covered, with an introduction to system tests. 
-The subsequent [page](./advanced-testing.md) delves further into testing with more advanced topics, like mocking and code coverage.
+[Next up](./basic-testing.md) is an introduction to code testing. On this page, the basics of unit testing are covered, with an introduction to system tests. 
+The subsequent [page](./advanced-testing.md) delves further into unit testing with more advanced topics, like code coverage.
