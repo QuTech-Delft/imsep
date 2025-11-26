@@ -81,6 +81,208 @@ discussions about code style. "Should we use spaces between mathematical operati
 Fortunately, as Python is a mature language, most of this has already been figured out, and guidelines exist known as [Python Enhancement Proposals](https://peps.python.org/)(PEP).
 [PEP 8 ](https://peps.python.org/pep-0008/) focuses on code style, and packages exist which automatically enforce these guidelines. 
 
+However, many good practices are not covered by these packages, and are often learnt through experience. 
+The following examples highlight these with a short example in Python.
+
+1. The use of visual clustering, so that parts of the code that “belong” together are easily recognisable:
+
+    !!! example "No clustering"
+         
+         ```python
+         def calculate_total(cart, discount_rate):
+            if not cart:
+               raise ValueError("Cart cannot be empty.")
+            if not (0 <= discount_rate <= 1):
+               raise ValueError("Discount rate must be between 0 and 1.")
+            subtotal = sum(item['price'] * item['quantity'] for item in cart)
+            discount = subtotal * discount_rate
+            total = subtotal - discount
+            return total
+         ```
+    
+    Each cluster could be seperated by comment, however, when written properly, these comments are often not needed.
+    In the example below, these (redundant) comments are given to illustrate the effect of clustering.
+    
+    !!! example "Clustered"
+         
+         ```python
+         def calculate_total(cart, discount_rate):
+            
+            # check inputs
+            if not cart:
+               raise ValueError("Cart cannot be empty.")
+            if not (0 <= discount_rate <= 1):
+               raise ValueError("Discount rate must be between 0 and 1.")
+            
+            # calculate totals
+            subtotal = sum(item["price"] * item["quantity"] for item in cart)
+            total = (1 - discount) * subtotal
+            
+            # return total
+            return total
+         ```
+
+2. Declare variables close to their usage:
+    
+    !!! example "All placed on top"
+       
+        ```python
+        def calculate_average_grades(students):
+            total_grades = 0
+            count = len(students)
+    
+            if not students:
+                raise ValueError("The students list cannot be empty.")
+    
+            for student in students:
+                total_grades += student['grade']
+    
+            average_grade = total_grades / count
+    
+            return average_grade
+        ```
+    
+    !!! example "Declared close to their usage"
+       
+        ```python
+        def calculate_average_grades(students):
+    
+            if not students:
+                raise ValueError("The students list cannot be empty.")
+            
+            total_grades = 0
+    
+            for student in students:
+                total_grades += student["grade"]
+    
+            count = len(students)
+            average_grade = total_grades / count
+    
+            return average_grade
+        ```
+
+3. Only summarise code when it remains readable:
+
+    !!! example "Previous example as a one-liner"
+
+        ```python
+        def calculate_average_grades(students):
+    
+            if not students:
+                raise ValueError("The students list cannot be empty.")
+            
+            return sum([student["grade"] for student in students]) / len(students)
+        ```
+    
+    The next example shows a case where separate lines would have improved readability massively:
+
+    !!! example "Incomprehensible one-liner"
+    
+        ```python
+        def get_unique_even_cubed_double_of_positive_numbers(numbers):
+            return list(map(lambda x: round(x**3, 2), filter(lambda x: x % 2 == 0, set(map(lambda y: y * 3, [i for i in numbers if i > 0])))))
+        ```
+
+    !!! exercise
+    
+        What should the previous function return with an input of `[1, 2, 3]`?
+
+    ??? solution
+        
+        Don't attempt to understand this code, life is too short! Make a respectiful comment to the developer about the code style instead.
+
+4. Logical flow of classes and/or functions:
+
+    !!! example "random order"
+
+        ```python
+        def main():
+            helper_1()
+            helper_2()
+
+        def helper_2():
+            helper_3()
+            helper_4()
+
+        def helper_3():
+            pass
+        
+        def helper_1():
+            pass
+
+        def helper_4():
+            pass
+        ```
+    
+    !!! example "ordered"
+
+        ```python
+        def main():
+            helper_1()
+            helper_2()
+
+        def helper_1():
+            pass
+
+        def helper_2():
+            helper_3()
+            helper_4()
+
+        def helper_3():
+            pass
+
+        def helper_4():
+            pass
+        ```
+    
+    !!! note
+        
+        In classes there is the extra element of different method types, e.g. a class method after a static method.
+        There is no right or wrong in mixing, as long as it makes sense to the reader.
+
+5. The use of descriptive names. 
+
+    Especially when coding mathematics, it is tempting to fall back to their abbreviations. Take the function for dynamic pressure for example:
+
+    !!! example "Dynamic pressure"
+    
+        $$
+        p = \frac{1}{2} * \rho * V^2
+        $$
+    
+    How to code this? It matters on the context. If it is software coded by mainly physicists for other physicists in the same field,
+    falling back to the mathematical descriptors could be acceptable (whilst using a descriptive function name):
+    
+    !!! example "Mathematical code"
+
+        ```python
+        def calculate_dynamic_pressure(rho: float, v: float) -> float:
+            return 0.5 * rho * v ** 2
+        ```
+    
+    Note that a lowercase `v` is used. Style guidelines for the programming language should always come first, and mathematical styling second.
+    In Python, an uppercase name suggests either a class or a type, thus using `V` would be plain wrong here. If this causes a clash with another function,
+    it is recommended to switch back to descriptive names instead.
+
+    !!! warning
+    
+        Imagine having two mathematical functions both taking `v` as an input, but it signifies something else. One the uppercase mathemetical descriptor,
+        and the other one the lowercase. Debugging this piece of code would be unnecessarily difficult.
+
+    When it is clear that developers without in-depth knowledge of the mathematical methods will collaborate, descriptive names should be used.
+    This also includes the scenario in which the development team consists of physicists, but the software will be maintained by non-physicists.
+    Using the same example, but descriptive:
+
+    !!! example "Descriptive code"
+
+        ```python
+        def calculate_dynamic_pressure(density: float, velocity: float):
+            return 0.5 * density * velocity ** 2
+        ```
+
+    There are countless examples where abbreviated variable names cause confusion, and contests actually exist in which to write the most incomprehensible code as possible,
+    but this is usually not desired in the working environment. 
+
 ## Quality
 
 Tools like pylint etc.
