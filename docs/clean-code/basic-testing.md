@@ -1,12 +1,17 @@
 # An introduction to testing
 
-Testing is crucial to code quality, and covering its fundamentals requires its own dedicated page. 
+!!! abstract "Overview"
+
+    - What is a unit test, and how to write one?
+    - How to mock external components when unit testing?
+    - What is a system test?
 
 ## Unit testing
 
 Unit testing is the first step in testing software. A code block is tested for its correctness, this is usually
 a function. If multiple scenario's exist (in the form of if-statements, for example) each scenario is tested.
-This way, bugs existing on the lowest level can easily be found (e.g. a conditional incorrectly defined). 
+This way, bugs existing on the lowest level can easily be found (e.g. a conditional incorrectly defined), 
+and overall confidence in the code base grows.
 
 ### Setting up a unit test
 
