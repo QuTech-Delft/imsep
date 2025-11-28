@@ -2,7 +2,7 @@
 
 !!! abstract "Overview"
 
-    - What are shells, and how do they differ per operating system (OS)?
+    - What are shells, and how do they differ per operating system?
     - What is Git, and how can it be set up?
 
 An understanding of shells is a prerequisite for using Git from the command-line.
@@ -13,7 +13,7 @@ The topic is therefore addressed at the start of this chapter.
 In this day and age, it is common to have graphical user interfaces (GUI) for almost everything. An interface based on
 typing in commands, known as a command-line interface (CLI) can therefore feel unintuitive at first, 
 but could save time compared to a GUI with practice. Secondly, for some tools, a CLI is the only option. 
-An example of this is the OS shell. It is a CLI to interact with the OS. This shell differs per OS, and is further described below.
+An example of this is the operating system (OS) shell. It is a CLI to interact with the OS. This shell differs per OS, and is further described below.
 
 ### Linux
 

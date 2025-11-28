@@ -19,7 +19,7 @@ This way of branching gives a clear oversight of what is developed where, as dep
 
 ![Basic cycle](../assets/images/git_1.jpg)
 
-For this part of the workshop, a local repository will suffice. 
+For the Git examples given on this page, a local repository will suffice. 
 The snippet below makes a new directory, creates a local Git repository, and creates the default branch:
 
 ```shell
@@ -30,7 +30,7 @@ git init
 
 !!! note
 
-    All the snippets given in this section work in both Bash and PowerShell.
+    All the snippets given in this chapter work in both (Git) Bash and PowerShell.
 
 The second step is to create a new branch from the default branch. There are two ways to do this, with the second option
 being a shorthand for the first one:

@@ -9,11 +9,11 @@
 
 ## Branches
 
-The branch model for collaborative development is pretty much identical to the individual one, with the only exception being 
+The branch model for collaborative development is pretty much identical to the individual one, the only exception being 
 that multiple feature branches can exist at the same time. The idea is that each developer works on an item individually,
-and merge with the default branch once it is completed. It is not recommended to have multiple people work in the same branch,
-this often leads to conflicts when attempting to push changes. The merging does not have to be done in sequence, and is
-depicted in the image below.
+and merge with the default branch once it is completed. It is not recommended to have multiple people work in the same branch.
+It often leads to conflicts when attempting to push changes. The merging of branches does not have to be done in the order in which they were created, 
+as depicted in the image below.
 
 ![Advanced cycle](../assets/images/git_2.jpg)
 
