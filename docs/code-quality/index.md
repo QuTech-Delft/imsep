@@ -1,8 +1,16 @@
-# Clean code
+# Code quality
 
-magine you are reading a well-organized book or following a simple recipe. Each step is clear, easy to understand, and there’s no unnecessary clutter. 
+!!! abstract "Overview"
+   
+    - Why is code quality of importance?
+    - What elements define the quality of code?
+    - What are best practices to follow for each of these elements?
+
+## Clean code
+
+Imagine you are reading a well-organized book or following a simple recipe. Each step is clear, easy to understand, and there’s no unnecessary clutter. 
 Now imagine the opposite, a messy, confusing set of instructions where you’re constantly backtracking to figure out what’s going on. 
-This is the difference between “clean code” and messy code in programming. It promotes:
+This is the difference between “clean code” and messy code in programming. Clean code promotes:
 
 - Teamwork, other developers are less likely to get stuck deciphering code.
 - Longevity, future changes can be applied more easily and the code tends to keep running longer without breaking.
@@ -10,22 +18,25 @@ This is the difference between “clean code” and messy code in programming. I
 
 !!! note
 
-    The code examples used on this page are written in Python, but the principes they try to outline are applicable to any language!
+    The snippets used in this chapter are written in Python, but the principes they try to outline are applicable to any language!
 
 ## Design
 
-Starting with a design can reduce the time spent coding tremendously. Constructing such a design for a new project is beyond the scope of this workshop,
-but asking the following questions before, can already save some effort:
+In mechanical engineering, engineers don't just start building. Usually, an elaborate design process precedes the manufacturing and test phases.
+Software engineering has the benefit of not requiring materials, but the same principles apply. 
+Constructing a complete design from scratch is beyond the scope of this workshop,
+but asking the following questions, can already save some effort in the development phase:
 
-1. What is the [sequence](https://plantuml.com/sequence-diagram) of actions from user inputs to program outputs?
-2. Which of these actions and data can be logically combined into [classes](https://plantuml.com/class-diagram)?
-3. Can this sequence of actions be tested?
-4. What would be a logical way to set up the package? To not end up with one `main` module, and a massive `helpers` module, for example.
+1. What does the user expect from the program?
+2. What is the [sequence](https://plantuml.com/sequence-diagram) of actions from the program to meet these expectations?
+3. Which of these actions and associated data can be logically combined into [classes](https://plantuml.com/class-diagram)?
+4. Can this sequence of actions be tested?
+5. What would be a logical way to set up the package? To not end up with one `main` module, and a massive `helpers` module, for example.
 
 ## Readability
 
-From the start, everything should be written in such a way to promote readability. From the highest level, e.g. modules, to function level,
-the code should tell a story of what is happening. Variable names, and function parameters should promote in telling this story.
+Right from the start, everything should be written in such a way to promote readability. From the highest level, e.g. modules, to function level,
+it should tell a story of what is happening. Variable names, and function parameters should further promote in telling this story.
 A tedious function can quickly become unreadable when this ideology is not followed:
 
 !!! exercise "What is going on?"
@@ -60,13 +71,13 @@ combined with specific syntax from other libraries, like Numpy or Pandas...
         return total
     ```
 
-The profound difference in readability can clearly be seen from both examples. Even when codes solve more complex problems,
-it can remain easily readable when sufficient effort is put in. A warning sign is when functions require more and more comments to make sense.
+The profound difference in readability can clearly be seen. Even when codes solve more complex problems,
+it can maintain its readability when sufficient effort is put in. A warning sign is when functions require more and more comments to make sense.
 This is usually a good moment to refactor the original function into smaller ones with a specific purpose, review the design, etc.
 
 !!! note
 
-    Python has a wonderful module which highlights the importance of readability:
+    Python has a wonderful built-in package which highlights the importance of readability:
 
     ```python
     import this
@@ -78,11 +89,11 @@ This is usually a good moment to refactor the original function into smaller one
 
 As mentioned in the [code review](../version-control/advanced-cycle.md#code-reviews) section, immature teams tend to have
 discussions about code style. "Should we use spaces between mathematical operations?", "In what order do we import other libraries?" are examples of such discussions.
-Fortunately, as Python is a mature language, most of this has already been figured out, and guidelines exist known as [Python Enhancement Proposals](https://peps.python.org/)(PEP).
-[PEP 8 ](https://peps.python.org/pep-0008/) focuses on code style, and packages exist which automatically enforce these guidelines. 
+Fortunately, as Python is a mature language, most of this has already been figured out. Guidelines exist known as the [Python Enhancement Proposals](https://peps.python.org/) (PEP).
 
+[PEP 8](https://peps.python.org/pep-0008/) focuses on code style, and packages exist which automatically enforce these guidelines.
 However, many good practices are not covered by these packages, and are often learnt through experience. 
-The following examples highlight these with a short example in Python.
+The following examples highlight these with a Python snippet:
 
 1. The use of visual clustering, so that parts of the code that “belong” together are easily recognisable:
 
@@ -174,7 +185,7 @@ The following examples highlight these with a short example in Python.
             return sum([student["grade"] for student in students]) / len(students)
         ```
     
-    The next example shows a case where separate lines would have improved readability massively:
+    The next example shows a case where separate lines would have improved readability:
 
     !!! example "Incomprehensible one-liner"
     
@@ -240,9 +251,9 @@ The following examples highlight these with a short example in Python.
         In classes there is the extra element of different method types, e.g. a class method after a static method.
         There is no right or wrong in mixing, as long as it makes sense to the reader.
 
-5. The use of descriptive names. 
+5. The use of descriptive names:
 
-    Especially when coding mathematics, it is tempting to fall back to their abbreviations. Take the function for dynamic pressure for example:
+    Especially when coding mathematics, it is tempting to fall back to their mathematical descriptors. Take the function for dynamic pressure for example:
 
     !!! example "Dynamic pressure"
     
@@ -356,14 +367,14 @@ Sometimes, it can be an arduous job to correctly type-hint code (especially with
 Certain elements should always be in a docstring, namely:
 
 - A brief description of what the function does.
-- What does the function return, if anything?
 - What are the inputs, their type, with a brief description.
+- What does the function return, if anything?
 
 Optionally, it is nice to have:
 
 - A list of the errors which can be raised with their description.
 - If the docstring start to turn into a story, or if it simply cannot be properly described with text alone, it is recommended to include a "See Also" section.
-It can include a link to the design documentation, research paper, etc.
+It can contain a link to the design documentation, research paper, etc.
 - Examples of what the function calculates based on the inputs, e.g.:
 
     ```python

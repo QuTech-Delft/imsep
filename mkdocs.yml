@@ -49,7 +49,7 @@ nav:
       - Advanced development cycle: version-control/advanced-cycle.md
   - Dependency management:
       - dependencies/index.md
-  - Clean code:
-      - clean-code/index.md
-      - An introduction to testing: clean-code/basic-testing.md
-      - Advanced testing methods: clean-code/advanced-testing.md
+  - Code quality:
+      - code-quality/index.md
+      - An introduction to testing: code-quality/basic-testing.md
+      - Advanced testing methods: code-quality/advanced-testing.md

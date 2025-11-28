@@ -8,7 +8,7 @@
 ## Test coverage
 
 When writing unit tests, it is good practice to cover the entire code base. This is known as the test "coverage", and
-various tools exist to measure it. In Python, `pytest` can be combined with the `coverage` package to measure and report the coverage:
+various tools exist to measure it. In Python, `pytest` can be combined with the [coverage](https://coverage.readthedocs.io/en/latest/) package to measure and report the coverage:
 
 ```shell
 coverage run -m pytest
@@ -26,7 +26,7 @@ Software engineering has various design philosophies, one of which is test-drive
 start by writing the unit test, instead of after. This way, the developer is forced to write out all the expected conditionals, errors, and return values beforehand,
 instead of during.
 
-This philosophy, combined with an initial design, can lead to a far better understanding of what needs to be coded compared to just starting right away.
+This philosophy, combined with a design, can lead to a far better understanding of what needs to be coded compared to just starting right away.
 To put the idea into practice, take the following example. A csv-file which could contain empty values needs to be converted into an array.
 If an empty value is found, the code needs to raise an error. Similarly, when a user saves the file to an unknown location.
 
@@ -35,6 +35,7 @@ If an empty value is found, the code needs to raise an error. Similarly, when a 
     ```python
     from unittest import TestCase
     
+
     class MyTest(TestCase):
         
         def test_read_csv(self) -> None:
@@ -55,6 +56,6 @@ If an empty value is found, the code needs to raise an error. Similarly, when a 
     ```
 
 Without filling in the details, the previous example already helps with setting up the "skeleton" of the source code.
-It will likely consist of two functions, each with an if-statement which raises an error. This philosophy also helps 
+It will likely consist of two functions, each with an if-statement which raises an error. The philosophy also helps 
 to better apply object-oriented programming (OOP). By thinking of all the design choices beforehand, it is easier to find
 related objects, and identify potential use cases for inheritance, instead of refactoring the source code during development.

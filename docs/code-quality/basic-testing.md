@@ -8,14 +8,13 @@
 
 ## Unit testing
 
-Unit testing is the first step in testing software. A code block is tested for its correctness, this is usually
-a function. If multiple scenario's exist (in the form of if-statements, for example) each scenario is tested.
-This way, bugs existing on the lowest level can easily be found (e.g. a conditional incorrectly defined), 
-and overall confidence in the code base grows.
+Unit testing is the first step in testing software. A code block is tested for its correctness, usually
+limited to a function. If multiple scenario's exist (in the form of if-statements, for example) each scenario is tested.
+This way, bugs existing on the lowest level can easily be found and overall confidence in the code base grows.
 
 ### Setting up a unit test
 
-Take the function defined below:
+Take the function from the previous page:
 
 !!! example "my_module.py"
     
@@ -60,14 +59,14 @@ For now, the `unittest` module can be seen as a framework to define the tests, a
     class TestMyModule(TestCase):
     
         def test_cart_empty(self) -> None:
-            # hint: use a "with self.assertRaises()" block to check if an exception is raised.
+            # hint: use a "with self.assertRaises" block to check if an exception is raised.
             pass
         
         def test_invalid_discount(self) -> None:
             pass
         
         def test_total(self) -> None:
-            # hint: use the "self.assertEqual()" method to check if the correct value is returned.
+            # hint: use the "self.assertEqual" method to check if the correct value is returned.
             pass
     ```
 
@@ -170,10 +169,10 @@ changed to a `TypeError`, for example.
 
 ### Mocking an external component
 
-What happens if a function calls another function? From a unit testing perspective, this function is external should be replaced with
-whatever it returns. This process is known as "mocking", and the `unittest` package provides a module for this.
+What happens if a function calls another function? From a unit testing perspective, this function is external, and should be replaced with
+whatever it returns. This process is known as "mocking", and `unittest` provides a module for this.
 If not mocked, this could cascade into testing multiple functions and/or classes at once. Even though this is still useful,
-it is known as an integration test. These tests should only be defined once unit testing succeeds. 
+it is known as an integration test. These tests should only be defined once the unit tests succeed. 
 The example from the previous section has been extended with another function, to define the shopping cart:
 
 !!! example "my_module.py"
@@ -279,20 +278,21 @@ The example from the previous section has been extended with another function, t
 
 Continuing with the shopping cart example, adding an item to a cart and calculate the cost is often not the end result
 of a piece of software. Usually, the user adds items to the cart via a GUI, pays via an external provider, and new
-entries are made in a database. When testing in this scope, the test is known as a system test. This could be measuring the application performance,
+entries are made in a database. When testing in this scope, the test is known as a system test. These could be defined to measure the application performance,
 functionalities, etc. 
 
 With only unit tests, nothing is said about the final results of the software. It might be perfect in calculating the total of a shopping cart,
 but was this needed in the first place? However, without unit tests, debugging a malfunctioning feature would be difficult, where to start?
-So, in terms of what should be tested, both should exist. The system test highly depends on what is being tested, but the following guidelines could help:
+Thus, both should be defined to get a good overview of the software capabilities. The system tests highly depends on what is being tested, 
+but the following guidelines could help:
 
 - Provide a clear description of the scenario and the expected outcome.
 - Provide a configuration of the application (if needed).
 - Separate the system tests from the other tests.
   
 Sometimes it can also be of use to check the interactions between a few components. These tests are known as integration tests,
-and sit between the unit and system tests. Different kinds of other tests exist, but all of them serve a single purpose,
-find faults in the software before the user does.
+and sit between the unit and system tests in terms of scope. Various other kinds of testing exist, but all of them serve a single purpose,
+to find faults in the software before the user does.
 
 ## Summary
 
@@ -300,10 +300,10 @@ In short, different levels of testing exist. Each level increases the scope of t
 discussed on this page:
 
 1. Unit testing, the smallest scope, usually a single function. External components can be mocked.
-2. Integration testing, could scope different components, like multiple functions and/or classes.
+2. Integration testing, could span different components, like multiple functions and/or classes.
 3. System testing, spans the entire application. Aims to check if the user requirements are met.
 
-Various other types of testing exist, but these are beyond the scope of this workshop.
+Other types of testing exist, but these are beyond the scope of this workshop.
 
 ## Further reading
 
