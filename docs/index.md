@@ -20,10 +20,11 @@ but can be read independently. Each part aims to answer problems encountered dur
 
 ## Prerequisites
 
-The target audience for this course is people who have been coding own their own for a while, and now wish to up their game by applying best practices 
-from the software engineering industry. To work with the code snippets, it is recommended to comply with the following system requirements:
+The target audience for this course is people who have been coding own their own for a while, and wish to up their game by applying best practices 
+from the software engineering industry. Or, have been forced to attend by their supervisors. To work with the code snippets, it is recommended to comply with the following system requirements:
 
 - Have a machine which runs on Windows / macOS / Ubuntu.
+- Have Git 2+ installed.
 - Have Python 3.10+ installed.
 
 The best practices are explained with Python code snippets, but apply to any language. It is therefore useful to have some knowledge of Python.
