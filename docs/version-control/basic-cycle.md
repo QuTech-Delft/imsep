@@ -13,6 +13,8 @@ These are used by the IDE as well, and knowing them gives a better understanding
 
 ## Branches
 
+Branching means you diverge from the main line of development and continue to do work without messing with that main line.
+
 When the repository is initialised, a default branch is created, usually named "main" or "master". Apart from the initial setup,
 it is good practice to create a new branch from the default branch before starting any form of development. 
 This way of branching gives a clear oversight of what is developed where, as depicted below.
