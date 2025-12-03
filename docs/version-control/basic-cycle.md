@@ -13,10 +13,12 @@ These are used by the IDE as well, and knowing them gives a better understanding
 
 ## Branches
 
-Branching means you diverge from the main line of development and continue to do work without messing with that main line.
+Branching can be seen as (temporarily) diverging from the main line of development and continue to do work independently.
+This prevents the chance of accidentally introducing a bug to the production code whilst developing.
+When a repository is initialised via a provider, this main branch is automatically created, usually named "main" or "master",
+and it is also tagged as the default branch.
 
-When the repository is initialised, a default branch is created, usually named "main" or "master". Apart from the initial setup,
-it is good practice to create a new branch from the default branch before starting any form of development. 
+Apart from the initial setup of the project, it is good practice to create a new branch from the default branch before starting any form of development. 
 This way of branching gives a clear oversight of what is developed where, as depicted below.
 
 ![Basic cycle](../assets/images/git_1.jpg)
@@ -28,6 +30,7 @@ The snippet below makes a new directory, creates a local Git repository, and cre
 mkdir ~/workshop
 cd ~/workshop
 git init
+git switch --create "main"
 ```
 
 !!! note
@@ -50,10 +53,10 @@ git switch --create "feature"
 
     The `--create` flag can be replaced with the short version `-c`.
 
-## Commiting changes
+## Committing changes
 
 Within the feature branch, code can be written, documentation can be added etc. To show the way to commit these changes,
-a tedious textfile is used (within the `~/workshop` directory):
+a simple textfile is used instead of real code (within the `~/workshop` directory) called `code.txt`:
 
 ```shell
 echo "Hello Git!" > code.txt
@@ -65,6 +68,16 @@ as there isn't a reference version of the file in the repository yet:
 ```shell
 git status
 ```
+
+!!! success
+
+    On branch feature
+    
+    No commits yet
+    
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            code.txt
 
 The next step is to add the file to the staging area. If you think of Git as taking snapshots of changes over the life of a project, 
 `git add` specifies what will go in a snapshot (the staging area), and `git commit` then actually takes the snapshot, 
@@ -81,6 +94,12 @@ Imagine having to find the commit where a bug was introduced, and all of them we
 ```shell
 git commit --message "added text file"
 ```
+
+!!! success
+
+    [feature (root-commit) 584cd1f] added text file
+     1 file changed, 0 insertions(+), 0 deletions(-)
+     create mode 100644 code.txt
 
 To see if everything went as expected, the `git status` command can be called again, to see it empty. 
 With new changes, the same cycle is repeated until the feature is completed and the branch can be [merged](#merging) into the default branch. 
@@ -121,7 +140,7 @@ of which the following are useful to remember:
 These patterns can be defined the `.gitignore` file, and Git automatically picks up the items to ignore.
 The `git status --ignored` command can be used to see the ignored files.
 
-!!! exercise
+!!! question
     
     What is the patterns to ignore the `.idea` folder in the root directory, but not `idea.txt`?
 
@@ -147,6 +166,27 @@ After a successful merge, first check if the correct branch is checked out with 
 ```shell
 git branch --delete "feature"
 ```
+
+## Summary
+
+On this page, only the basics commands of Git have been addressed. They are meant to explain the standard workflow, but it is by no means complete.
+Git offers many more [commands](https://git-scm.com/docs) which could be very useful in a specific scenario. 
+It also offers its own tutorial, which can be accessed with the `git help tutorial` command.
+
+!!! question
+
+    Which command would be useful in the situation where you have uncommitted changes, but want to switch to another branch?
+
+??? solution
+
+    The `git stash` command. If unused, and the uncommitted changes include files which are present in both branches,
+    Git will gives the following error:
+
+    !!! failure
+
+        error: Your local changes to the following files would be overwritten by checkout:
+        <FILES>
+        Please commit your changes or stash them before you switch branches.
 
 ## Further reading
 
