@@ -69,15 +69,17 @@ as there isn't a reference version of the file in the repository yet:
 git status
 ```
 
-!!! success
+!!! success "Git response"
 
+    ```text
     On branch feature
     
     No commits yet
     
     Untracked files:
       (use "git add <file>..." to include in what will be committed)
-            code.txt
+        code.txt
+    ```
 
 The next step is to add the file to the staging area. If you think of Git as taking snapshots of changes over the life of a project, 
 `git add` specifies what will go in a snapshot (the staging area), and `git commit` then actually takes the snapshot, 
@@ -95,11 +97,13 @@ Imagine having to find the commit where a bug was introduced, and all of them we
 git commit --message "added text file"
 ```
 
-!!! success
+!!! success "Git response"
 
+    ```text
     [feature (root-commit) 584cd1f] added text file
      1 file changed, 0 insertions(+), 0 deletions(-)
      create mode 100644 code.txt
+    ```
 
 To see if everything went as expected, the `git status` command can be called again, to see it empty. 
 With new changes, the same cycle is repeated until the feature is completed and the branch can be [merged](#merging) into the default branch. 
@@ -140,11 +144,11 @@ of which the following are useful to remember:
 These patterns can be defined the `.gitignore` file, and Git automatically picks up the items to ignore.
 The `git status --ignored` command can be used to see the ignored files.
 
-!!! question
+!!! info "Question"
     
     What is the patterns to ignore the `.idea` folder in the root directory, but not `idea.txt`?
 
-??? Solution
+??? question "Solution"
     
     ```text
     /.idea
@@ -173,20 +177,22 @@ On this page, only the basics commands of Git have been addressed. They are mean
 Git offers many more [commands](https://git-scm.com/docs) which could be very useful in a specific scenario. 
 It also offers its own tutorial, which can be accessed with the `git help tutorial` command.
 
-!!! question
+!!! info "Question"
 
     Which command would be useful in the situation where you have uncommitted changes, but want to switch to another branch?
 
-??? solution
+??? question "Solution"
 
     The `git stash` command. If unused, and the uncommitted changes include files which are present in both branches,
     Git will gives the following error:
 
-    !!! failure
+    !!! failure "Git response"
 
+        ```text
         error: Your local changes to the following files would be overwritten by checkout:
         <FILES>
         Please commit your changes or stash them before you switch branches.
+        ```
 
 ## Further reading
 
