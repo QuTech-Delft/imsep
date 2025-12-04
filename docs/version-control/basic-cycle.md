@@ -148,7 +148,7 @@ The `git status --ignored` command can be used to see the ignored files.
     
     What is the patterns to ignore the `.idea` folder in the root directory, but not `idea.txt`?
 
-??? question "Solution"
+??? question "Answer"
     
     ```text
     /.idea
@@ -181,7 +181,7 @@ It also offers its own tutorial, which can be accessed with the `git help tutori
 
     Which command would be useful in the situation where you have uncommitted changes, but want to switch to another branch?
 
-??? question "Solution"
+??? question "Answer"
 
     The `git stash` command. If unused, and the uncommitted changes include files which are present in both branches,
     Git will gives the following error:
