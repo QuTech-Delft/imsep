@@ -111,7 +111,7 @@ The process of merging is depicted in the image below.
   ![Rebasing](../assets/images/merge.svg){ width="600" }
 </figure>
 
-*Courtesy of (stolen from) [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)*
+*Courtesy of (stolen from) [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
 
 The main upside of merging compared to rebasing (discussed next), is that it is a non-destructive operation.
 All the changes made in the default branch which are not yet included in the feature branch are contained in a merge commit.
@@ -128,7 +128,7 @@ A full list of scenarios in which to (not) use rebase can be found [here](https:
   ![Rebasing](../assets/images/rebase.svg){ width="600" }
 </figure>
 
-*Courtesy of (stolen from) [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)*
+*Courtesy of (stolen from) [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
 
 ## Merge conflicts
 
@@ -150,7 +150,7 @@ the changes made in both the default and feature branches:
 
 During the merge, the `.gitignore` file will look like this:
 
-!!! note ".gitignore"
+!!! example ".gitignore"
 
     ```text
     <<<<<<< HEAD
@@ -167,7 +167,7 @@ During the merge, the `.gitignore` file will look like this:
 It is up to the second developer to resolve the conflict, by editing the `.gitignore` file and marking the issue as resolved.
 This can be done by editing the file in a text editor or in the GUI provided by an IDE. In both cases, the file should look like this in the end:
 
-!!! note ".gitignore"
+!!! example ".gitignore"
 
     ```text
     change(s) from first developer

@@ -26,7 +26,7 @@ In the example below, the following commands are executed:
 4. List the files in the current directory.
 5. Print the content of the created file in the console.
 
-!!! example
+!!! example "Bash"
 
     ```shell
     mkdir ~/some-dir
@@ -72,7 +72,7 @@ The Windows shell (called PowerShell) is completely different from the Bash shel
 When switching frequently between a Unix-based system and Windows, Git Bash can be good alternative to PowerShell and is automatically installed with Git.
 The example below executes the same steps as in the Linux one, but using the PowerShell syntax:
 
-!!! example
+!!! example "PowerShell"
     
     ```shell
     mkdir ~/some-dir
