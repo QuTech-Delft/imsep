@@ -9,13 +9,9 @@
 
 ## Dependencies
 
-When working on new software, it is common to re-use existing software for others cover functionalities which have already been developed.
+When working on new software, it is common to re-use existing software from others to cover certain functionalities.
 These pieces of software are known as dependencies. When mismanaged, this can lead to unforeseen problems, either during development,
 or for the user. This mismanagement can come in different levels, each of which is described with an example below.
-
-from dependencies not being defined at all,
-to no versions being specified. Sometimes dependencies are being used from unverified sources with infrequent maintenance.
-For each of these situations, an example is given below.
 
 !!! example "No management"
     
@@ -28,7 +24,7 @@ The first level doesn't apply any form of management. Any form of automation wil
 
     After sending an email to the imaginary friend, a list with the dependencies is given. It mentions "Numpy", but it doesn't say which version,
     and that it needs at least Python `3.10`. It doesn't say if it will run on the latest version. Getting the script to run is far easier,
-    but it runs into an error saying "'out' argument in 'maximum' is deprecated".
+    but it runs into an error saying "the 'out' argument in 'maximum' is deprecated".
 
 The second level gives the required dependencies, but doesn't say anything about the versions. Depending on the maturity level of the project,
 this might be sufficient, but could lead to a mismatch in the version used in development, and the one the user installs. 
@@ -43,11 +39,23 @@ can usually be defined in a [package manager](#package-managers) as well.
 
 !!! example "Easily breakable dependency"
 
-    The list also mentions another dependency from an individual. The repository needs to cloned, and set to a specific version,
+    The list also mentions another dependency from an individual. The repository needs to be cloned, and set to a specific version,
     otherwise the code build for the current Linux distribution will fail.
 
 The fully-managed level could still contain easily breakable dependencies. Either they are updated infrequently, or simply lack quality.
-When adding new dependencies to a code base, it is worth the effort to check the repository for potential red flags.
+This can show in the forms of failing builds, incomplete test coverage, inconsistent versioning, etc.
+
+!!! note
+   
+    When adding new dependencies to a code base, it is worth the effort to check the repository for potential red flags.
+
+!!! quote "Question"
+
+    hello!
+
+!!! question "Answer"
+
+    dfdjfhdf!
 
 ## Isolated environments
 
