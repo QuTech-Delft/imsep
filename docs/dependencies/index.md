@@ -43,32 +43,38 @@ can usually be defined in a [package manager](#package-managers) as well.
     otherwise the code build for the current Linux distribution will fail.
 
 The fully-managed level could still contain easily breakable dependencies. Either they are updated infrequently, or simply lack quality.
-This can show in the forms of failing builds, incomplete test coverage, inconsistent versioning, etc.
+When adding new dependencies to a code base, it is worth the effort to check the repository for potential red flags.
+This can show in the form of failing builds, incomplete test coverage, inconsistent versioning, etc.
 
-!!! note
-   
-    When adding new dependencies to a code base, it is worth the effort to check the repository for potential red flags.
+!!! info "Question"
 
-!!! quote "Question"
+    You want to add [this](https://pypi.org/project/apistar/#description) dependency to your code base, what could be potential pitfalls?
 
-    hello!
+??? question "Answer"
 
-!!! question "Answer"
+    The following items suggest this dependency could easily break in the near-future:
 
-    dfdjfhdf!
+    1. Last update was in 2019.
+    2. It reports a code coverage of only 85%.
+    3. The suggested Python version is already end-of-life.
+    4. No major version (1.X.X) is available.
 
 ## Isolated environments
 
 Developers often work on various pieces of software, each with its own set of dependencies. When running these codes from the same environment,
 it could lead to conflicts. What if software `A` requires a higher version of a dependency, compared to the maximum allowed version for software `B`?
 The idea of isolation has become so popular, all kinds of tools exist to provide an isolated environment, with various levels of automation.
-In this section, the idea is illustrated using the `venv` package from Python, and its package installer PIP.
+
+### Virtual environments in Bash
+
+In this section, the idea of isolation is illustrated using the `venv` package from Python, and its package installer PIP.
+The `venv` package creates an isolated Python environment, which is called a virtual environment. 
 
 !!! note
   
     The snippets in this section only work in (Git) Bash, see the [Windows](#virtual-environments-on-windows) section for their PowerShell equivalent.
 
-Using the example from the previous section, a Python environment needs to be set up that has the Numpy package installed, 
+Using the example from the previous section, a Python environment needs to be set up that has the `numpy` package installed, 
 from version `2.0` to `2.3`. Additionally, the Python version has to be from `3.10` to `3.13`. To check the current Python version:
 
 ```shell
@@ -81,9 +87,12 @@ dependencies can be easily managed. Once it is no longer needed, the environment
 A virtual environment can be created with the following command:
 
 ```shell
-mkdir ~/workshop
 python3 -m venv ~/workshop/venv
 ```
+
+!!! note
+
+    Create the workshop directory with the `mkdir ~/workshop` command, if not yet done so previously.
 
 Once created, the environment has to be activated. If this is not done, all the commands use the system interpreter instead!
 
@@ -115,8 +124,8 @@ rm --recursive ~/workshop/venv
 ### Virtual environments on Windows
 
 On Windows, the sequence of events is identical, only the syntax differs slightly. In Bash, each Python version has its own command,
-e.g. `python3`, once the environment is activated, the `python` command works. In PowerShell, this is always `python` linking to a specific
-Python version. Using the same snippets from the previous section, with their PowerShell equivalent (if it differs from the Bash version):
+e.g. `python3`. Once the environment is activated, the `python` command works. In PowerShell, this is always `python`, linking to a specific
+Python version. Using the same snippets from the previous section, with their PowerShell equivalent:
 
 1. Python commands:
     
@@ -135,43 +144,40 @@ Python version. Using the same snippets from the previous section, with their Po
     ~/workshop/venv/Scripts/activate.ps1
     ```
 
-## Package managers
+!!! note
+
+    If a command is missing, it means that it is identical to the one in Bash.
+
+### Managing dependencies with PIP
 
 Combining virtual environments with a package manager is an efficient way for managing dependencies in Python. Different flavours exist,
-of which PIP was introduced in the previous section. It works with a file called `requirements.txt` in which the dependencies are defined.
+of which PIP is the pre-installed version. It works with a file called `requirements.txt` in which the dependencies are defined.
 To generate this file from an existing environment, run:
 
 ```shell
 pip freeze > requirements.txt
 ```
 
-This command generates a list of all the currently installed packages, and dumps it in the file. This file can subsequently be used to 
-set up a new environment:
+The command generates a list of all the currently installed packages and dumps them in a file. 
+Using the virtual environment defined in the previous section, this file will contain the following line:
+
+!!! example "requirements.txt"
+     
+    numpy==2.3
+
+The file can subsequently be used to set up a new environment:
 
 ```shell
 pip install --requirement requirements.txt
 ```
 
-Although it has the major components for managing dependencies, other package managers make it even easier, especially when
-[distributing](#package-distribution) packages. Currently, [Poetry](https://python-poetry.org/) and [UV](https://docs.astral.sh/uv/) are popular managers. 
-The commands might be different, but each of them has commands to add, remove, update, and install dependencies.
+If an environment needs to be cleaned up (including the system interpreter), the following sequence of commands could prove useful:
 
-## Package distribution
+```shell
+pip freeze > requirements.txt
+pip uninstall --requirement requirements.txt
+```
 
-All publicly available packages are distributed via the [Python Package Index](https://pypi.org/) (PyPI). 
-Private package registries can be used as well, but need to be explicitly given when installing a package from it, e.g.
-`pip install <PACKAGE> --extra-index-url <REGISTRY>`.
+!!! note
 
-The steps to publish a package are highly coupled to the package manager used, but it generally consists of the following parts:
-
-1. Define the package metadata (e.g. name, author(s), etc.) and its dependencies.
-2. Configure a token from a PyPI account. There is also a [test version](https://test.pypi.org/) of PyPI available, it requires a separate account and token.
-3. Build and publish the package on PyPi.
-
-Obviously, when publishing to a private registry, different credentials need to be configured. It is good practice to 
-stick to [semantic versioning](https://semver.org/). Each version number consists of the following elements:
-
-1. Major version, an increase in this number suggests incompatible changes compared to the previous version. E.g. from `1.X.X` to `2.X.X`.
-Additionally, test versions are flagged as `0.X.X`.
-2. Minor version, an increase in this number suggests compatible changes compared to the previous version. E.g. from `X.1.X` to `X.2.X`.
-3. Patch version, for changes without adding new functionality, e.g. bug fixes. 
+    Run `pip list` on the system interpreter, how many packages are installed?
