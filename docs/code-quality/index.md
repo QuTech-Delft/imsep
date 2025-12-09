@@ -39,7 +39,7 @@ Right from the start, everything should be written in such a way to promote read
 it should tell a story of what is happening. Variable names, and function parameters should further promote in telling this story.
 A tedious function can quickly become unreadable when this ideology is not followed:
 
-!!! exercise "What is going on?"
+!!! failure "What is going on?"
     
     ```python
     def calc_t(c, disc):
@@ -52,7 +52,7 @@ Before opening the code block below, realise how much time it took to decipher t
 Now imagine a code base which is written entirely like this, with different function calls within each function, 
 combined with specific syntax from other libraries, like Numpy or Pandas...
 
-??? solution "Oh ..."
+??? success "Oh ..."
 
     ```python
     def calculate_total(cart: list[dict[str, int]], discount: float = 0) -> float:
@@ -97,7 +97,7 @@ The following examples highlight these with a Python snippet:
 
 1. The use of visual clustering, so that parts of the code that “belong” together are easily recognisable:
 
-    !!! example "No clustering"
+    !!! failure "No clustering"
          
          ```python
          def calculate_total(cart, discount_rate):
@@ -114,7 +114,7 @@ The following examples highlight these with a Python snippet:
     Each cluster could be seperated by comment, however, when written properly, these comments are often not needed.
     In the example below, these (redundant) comments are given to illustrate the effect of clustering.
     
-    !!! example "Clustered"
+    ??? success "Clustered"
          
          ```python
          def calculate_total(cart, discount_rate):
@@ -135,7 +135,7 @@ The following examples highlight these with a Python snippet:
 
 2. Declare variables close to their usage:
     
-    !!! example "All placed on top"
+    !!! failure "All placed on top"
        
         ```python
         def calculate_average_grades(students):
@@ -153,7 +153,7 @@ The following examples highlight these with a Python snippet:
             return average_grade
         ```
     
-    !!! example "Declared close to their usage"
+    ??? success "Declared close to their usage"
        
         ```python
         def calculate_average_grades(students):
@@ -174,7 +174,7 @@ The following examples highlight these with a Python snippet:
 
 3. Only summarise code when it remains readable:
 
-    !!! example "Previous example as a one-liner"
+    !!! success "Previous example as a one-liner"
 
         ```python
         def calculate_average_grades(students):
@@ -184,27 +184,27 @@ The following examples highlight these with a Python snippet:
             
             return sum([student["grade"] for student in students]) / len(students)
         ```
-    
-    The next example shows a case where separate lines would have improved readability:
 
-    !!! example "Incomprehensible one-liner"
+    !!! failure "Incomprehensible one-liner"
     
         ```python
         def get_unique_even_cubed_double_of_positive_numbers(numbers):
             return list(map(lambda x: round(x**3, 2), filter(lambda x: x % 2 == 0, set(map(lambda y: y * 3, [i for i in numbers if i > 0])))))
         ```
+   
+    The previous example shows a case where separate lines would have improved readability.
 
-    !!! exercise
+    !!! info "Question"
     
         What should the previous function return with an input of `[1, 2, 3]`?
 
-    ??? solution
+        ??? question "Answer"
         
-        Don't attempt to understand this code, life is too short! Make a respectiful comment to the developer about the code style instead.
+            Don't attempt to understand this code, life is too short! Make a respectiful comment to the developer about the code style instead.
 
 4. Logical flow of classes and/or functions:
 
-    !!! example "random order"
+    !!! failure "random order"
 
         ```python
         def main():
@@ -225,7 +225,7 @@ The following examples highlight these with a Python snippet:
             pass
         ```
     
-    !!! example "ordered"
+    ??? success "ordered"
 
         ```python
         def main():
@@ -342,22 +342,24 @@ For Python specifically, type-hinting is good practice. It is not enforced, but 
 A full explanation of type-hinting is beyond the scope of this workshop, but the basics can be applied easily. 
 Each parameter and return value should be type-hinted, and cases when it can be unclear what the type should be:
 
-```python
-class MyClass:
+!!! example "Type-hinting"
 
-    def __init__(self, a: int, b: int) -> None:
-        self.a = a
-        self.b = b
-        self.c: list[int] = []
-    
-    def my_method(self, c: int) -> int:
-        self.c.append(c)
-        return self.a + self.b + sum(self.c)
-
-
-def my_function(my_class: MyClass) -> None:
-    print(my_class.a + my_class.b)
-```
+    ```python
+    class MyClass:
+   
+        def __init__(self, a: int, b: int) -> None:
+            self.a = a
+            self.b = b
+            self.c: list[int] = []
+       
+        def my_method(self, c: int) -> int:
+            self.c.append(c)
+            return self.a + self.b + sum(self.c)
+   
+   
+    def my_function(my_class: MyClass) -> None:
+        print(my_class.a + my_class.b)
+    ```
 
 [Mypy](https://mypy.readthedocs.io/en/stable/#) can be used for both checking type-hinting and explanations as to why certain variables are incorrectly typed.
 Sometimes, it can be an arduous job to correctly type-hint code (especially with Mypy in "strict" mode), but it will always lead to better code quality.
@@ -377,35 +379,37 @@ Optionally, it is nice to have:
 It can contain a link to the design documentation, research paper, etc.
 - Examples of what the function calculates based on the inputs, e.g.:
 
-    ```python
-    from numpy import arange, argmax, round as numpy_round, zeros
-    from numpy.typing import ndarray
+    !!! example "Show examples"
+
+        ```python
+        from numpy import arange, argmax, round as numpy_round, zeros
+        from numpy.typing import ndarray
     
-    def convert_array(inputs: ndarray) -> ndarray:
-        """
-        Convert a floating point array into an array with one true index per row.
+        def convert_array(inputs: ndarray) -> ndarray:
+            """
+            Convert a floating point array into an array with one true index per row.
     
-        Args:
-            inputs: Array containing floating point values between 0 and 1.
+            Args:
+                inputs: Array containing floating point values between 0 and 1.
     
-        Returns:
-            Array with one true index per row.
+            Returns:
+                Array with one true index per row.
     
-        Examples:
-            - [[0.4], [0.5], [0.6]] is converted to [[0], [0], [1]].
-            - [[0.1, 0.2, 0.7], [0.4, 0.4, 0.2], [0.3, 0.3, 0.4]] is converted to [[0, 0, 1], [1, 0, 0], [0, 0, 1]].
-        """
-        if inputs.shape[-1] > 1:
-            maximums = argmax(inputs, axis=1)
+            Examples:
+                - [[0.4], [0.5], [0.6]] is converted to [[0], [0], [1]].
+                - [[0.1, 0.2, 0.7], [0.4, 0.4, 0.2], [0.3, 0.3, 0.4]] is converted to [[0, 0, 1], [1, 0, 0], [0, 0, 1]].
+            """
+            if inputs.shape[-1] > 1:
+                maximums = argmax(inputs, axis=1)
     
-            outputs = zeros(shape=inputs.shape)
-            outputs[arange(outputs.shape[0]), maximums] = 1
+                outputs = zeros(shape=inputs.shape)
+                outputs[arange(outputs.shape[0]), maximums] = 1
     
-        else:
-            outputs = numpy_round(inputs)
+            else:
+                outputs = numpy_round(inputs)
     
-        return outputs
-    ```
+            return outputs
+        ```
   
     In the above example, it would be difficult to understand the description and associated syntax. The examples make the calculations feel more intuitive.
 
