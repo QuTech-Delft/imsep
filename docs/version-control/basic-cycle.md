@@ -146,15 +146,15 @@ of which the following are useful to remember:
 These patterns can be defined the `.gitignore` file, and Git automatically picks up the items to ignore.
 The `git status --ignored` command can be used to see the ignored files.
 
-!!! info "Question"
+!!! tip "Question"
     
     What is the patterns to ignore the `.idea` folder in the root directory, but not `idea.txt`?
-
-??? question "Answer"
     
-    ```text
-    /.idea
-    ```
+    ??? info "Answer"
+        
+        ```text
+        /.idea
+        ```
 
 ## Merging
 
@@ -179,22 +179,22 @@ On this page, only the basics commands of Git have been addressed. They are mean
 Git offers many more [commands](https://git-scm.com/docs) which could be very useful in a specific scenario. 
 It also offers its own tutorial, which can be accessed with the `git help tutorial` command.
 
-!!! info "Question"
+!!! tip "Question"
 
     Which command would be useful in the situation where you have uncommitted changes, but want to switch to another branch?
-
-??? question "Answer"
-
-    The `git stash` command. If unused, and the uncommitted changes include files which are present in both branches,
-    Git will gives the following error:
-
-    !!! failure "Git response"
-
-        ```text
-        error: Your local changes to the following files would be overwritten by checkout:
-        <FILES>
-        Please commit your changes or stash them before you switch branches.
-        ```
+    
+    ??? info "Answer"
+    
+        The `git stash` command. If unused, and the uncommitted changes include files which are present in both branches,
+        Git will gives the following error:
+    
+        !!! failure "Git response"
+    
+            ```text
+            error: Your local changes to the following files would be overwritten by checkout:
+            <FILES>
+            Please commit your changes or stash them before you switch branches.
+            ```
 
 ## Further reading
 
