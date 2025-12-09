@@ -19,23 +19,23 @@ as depicted in the image below.
   ![Advanced cycle](../assets/images/git_2.jpg){ width="600" }
 </figure>
 
-!!! info "Question"
+!!! tip "Question"
 
     If you want to switch to a branch from another developer, but don't know the name, what command could be used to find it?
-
-??? question "Answer"
-
-    To get both the local and remote branches:
-
-    ```shell
-    git branch --all
-    ```
-
-    To get the remote branches only:
-
-    ```shell
-    git branch --remote
-    ```
+    
+    ??? info "Answer"
+    
+        To get both the local and remote branches:
+    
+        ```shell
+        git branch --all
+        ```
+    
+        To get the remote branches only:
+    
+        ```shell
+        git branch --remote
+        ```
 
 ### Pushing changes
 
