@@ -51,5 +51,4 @@ nav:
       - dependencies/index.md
   - Code quality:
       - code-quality/index.md
-      - An introduction to testing: code-quality/basic-testing.md
-      - Advanced testing methods: code-quality/advanced-testing.md
+      - An introduction to testing: code-quality/testing.md
