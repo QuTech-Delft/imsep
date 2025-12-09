@@ -77,7 +77,7 @@ This is usually a good moment to refactor the original function into smaller one
 
 !!! note
 
-    Python has a wonderful built-in package which highlights the importance of readability:
+    Python has a wonderful built-in package to highlight the importance of readability:
 
     ```python
     import this
@@ -174,7 +174,7 @@ The following examples highlight these with a Python snippet:
 
 3. Only summarise code when it remains readable:
 
-    !!! success "Previous example as a one-liner"
+    ??? success "Previous example as a one-liner"
 
         ```python
         def calculate_average_grades(students):
@@ -185,20 +185,20 @@ The following examples highlight these with a Python snippet:
             return sum([student["grade"] for student in students]) / len(students)
         ```
 
+    The next example shows a case where separate lines would have improved readability compared to the summarised lambda version.
+
     !!! failure "Incomprehensible one-liner"
     
         ```python
         def get_unique_even_cubed_double_of_positive_numbers(numbers):
             return list(map(lambda x: round(x**3, 2), filter(lambda x: x % 2 == 0, set(map(lambda y: y * 3, [i for i in numbers if i > 0])))))
         ```
-   
-    The previous example shows a case where separate lines would have improved readability.
 
-    !!! info "Question"
+    !!! tip "Question"
     
         What should the previous function return with an input of `[1, 2, 3]`?
 
-        ??? question "Answer"
+        ??? info "Answer"
         
             Don't attempt to understand this code, life is too short! Make a respectiful comment to the developer about the code style instead.
 
@@ -304,40 +304,45 @@ Various tools exist to help improve the code quality, and mature teams usually h
 a tool like [Pylint](https://www.pylint.org/) can help identify "[code smells](https://refactoring.guru/refactoring/smells)" and most IDEs have built-in quality checks as well.
 Running it on the following piece of code will result in a few suggestions:
 
-!!! example "bad_example.py"
+!!! example "Pylint"
     
-    ```python
-    import math
+    !!! example "bad_example.py"
     
-    def addNumbers(a, b): return a + b
-    
-    
-    def divide_numbers(a, b):
-        if b == 0:
-            print("Cannot divide by zero")
-            return None
-        return a / b
+        ```python
+        import math
+        
+        def addNumbers(a, b): return a + b
+        
+        
+        def divide_numbers(a, b):
+            if b == 0:
+                print("Cannot divide by zero")
+                return None
+            return a / b
+        ```
+
+    ```shell
+    pylint bad_example.py
     ```
     
-    ```text
-    ************* Module bad_example
-    bad_example.py:34:0: C0304: Final newline missing (missing-final-newline)
-    bad_example.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-    bad_example.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
-    bad_example.py:4:0: C0103: Function name "addNumbers" doesn't conform to snake_case naming style (invalid-name)
-    bad_example.py:4:22: C0321: More than one statement on a single line (multiple-statements)
-    bad_example.py:7:0: C0116: Missing function or method docstring (missing-function-docstring)
-    bad_example.py:1:0: W0611: Unused import math (unused-import)
-    
-    -----------------------------------
-    Your code has been rated at 5.91/10
-    ```
+    !!! failure "Pylint response"
+        
+        ```text
+        ************* Module bad_example
+        bad_example.py:34:0: C0304: Final newline missing (missing-final-newline)
+        bad_example.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+        bad_example.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+        bad_example.py:4:0: C0103: Function name "addNumbers" doesn't conform to snake_case naming style (invalid-name)
+        bad_example.py:4:22: C0321: More than one statement on a single line (multiple-statements)
+        bad_example.py:7:0: C0116: Missing function or method docstring (missing-function-docstring)
+        bad_example.py:1:0: W0611: Unused import math (unused-import)
+        
+        -----------------------------------
+        Your code has been rated at 5.91/10
+        ```
 
-For Python specifically, type-hinting is good practice. It is not enforced, but it makes the code:
-
-1. easier to use.
-2. less likely to crash.
-3. help developers identify mistakes in their code.
+For Python specifically, type-hinting is good practice. It is not enforced, but it makes the code easier to use and to identify mistakes, 
+as incorrect variable types are usually highlighted in an IDE. The code is also less likely to crash due to incompatible types.
 
 A full explanation of type-hinting is beyond the scope of this workshop, but the basics can be applied easily. 
 Each parameter and return value should be type-hinted, and cases when it can be unclear what the type should be:
