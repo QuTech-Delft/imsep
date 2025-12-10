@@ -37,130 +37,143 @@ Take the function from the previous page:
         return total
     ```
 
-!!! exercise
+!!! tip "Question"
 
-    How many unit tests would this code block need?
-
-??? solution
-
-    2 to check the conditionals, and 1 for the correct return value, thus 3 in total.
+    How many unit tests would the `my_module.py` code need?
+    
+    ??? info "Solution"
+    
+        2 to check the conditionals, and 1 for the correct return value, thus 3 in total.
 
 Different testing frameworks exist, the most common one being Python's built-in `unittest` package combined with [Pytest](https://docs.pytest.org/en/stable/).
 For now, the `unittest` module can be seen as a framework to define the tests, and `pytest` to launch them.
 
-!!! exercise
+!!! tip "Question"
 
-    Complete the unit tests using the template below.
+    Complete the unit tests for the `my_module.py` code using the template below.
 
-    ```python
-    from unittest import TestCase
+    !!! example "test_my_module.py"
     
-    from my_module import calculate_total
+        ```python
+        from unittest import TestCase
+        
+        from my_module import calculate_total
+        
     
+        class TestMyModule(TestCase):
+        
+            def test_cart_empty(self) -> None:
+                # hint: use a "with self.assertRaises" block to check if an exception is raised.
+                pass
+            
+            def test_invalid_discount(self) -> None:
+                pass
+            
+            def test_total(self) -> None:
+                # hint: use the "self.assertEqual" method to check if the correct value is returned.
+                pass
+        ```
 
-    class TestMyModule(TestCase):
-    
-        def test_cart_empty(self) -> None:
-            # hint: use a "with self.assertRaises" block to check if an exception is raised.
-            pass
+    ??? info "Solution"
         
-        def test_invalid_discount(self) -> None:
-            pass
+        ```python
+        from unittest import TestCase
         
-        def test_total(self) -> None:
-            # hint: use the "self.assertEqual" method to check if the correct value is returned.
-            pass
-    ```
-
-??? solution
-    
-    ```python
-    from unittest import TestCase
-    
-    from my_module import calculate_total
-    
-    
-    class TestMyModule(TestCase):
-    
-        def test_cart_empty(self) -> None:
-            cart = []
-            discount = 0
-            
-            with self.assertRaises(expected_exception=ValueError):
-                calculate_total(cart=cart, discount=discount)
+        from my_module import calculate_total
         
-        def test_invalid_discount(self) -> None:
-            item_1 = {"price": 1, "quantity": 3}
-            item_2 = {"price": 2, "quantity": 4}
-            
-            cart = [item_1, item_2]
-            discount = -1
-            
-            with self.assertRaises(expected_exception=ValueError):
-                calculate_total(cart=cart, discount=discount)
         
-        def test_total(self) -> None:
-            item_1 = {"price": 1, "quantity": 3}
-            item_2 = {"price": 2, "quantity": 4}
+        class TestMyModule(TestCase):
+        
+            def test_cart_empty(self) -> None:
+                cart = []
+                discount = 0
+                
+                with self.assertRaises(expected_exception=ValueError):
+                    calculate_total(cart=cart, discount=discount)
             
-            cart = [item_1, item_2]
-            discount = 0.5
+            def test_invalid_discount(self) -> None:
+                item_1 = {"price": 1, "quantity": 3}
+                item_2 = {"price": 2, "quantity": 4}
+                
+                cart = [item_1, item_2]
+                discount = -1
+                
+                with self.assertRaises(expected_exception=ValueError):
+                    calculate_total(cart=cart, discount=discount)
             
-            expected = 5.5
-            calculated = calculate_total(cart=cart, discount=discount)
-    
-            self.assertEqual(first=expected, second=calculated)
-    ```
+            def test_total(self) -> None:
+                item_1 = {"price": 1, "quantity": 3}
+                item_2 = {"price": 2, "quantity": 4}
+                
+                cart = [item_1, item_2]
+                discount = 0.5
+                
+                expected = 5.5
+                calculated = calculate_total(cart=cart, discount=discount)
+        
+                self.assertEqual(first=expected, second=calculated)
+        ```
 
 If the same variables are used in multiple tests, it can be of use to define them at the class level.
 The `TestCase` class works slightly different compared to regular Python classes. The `setUpClass` class method can be used to
 set up items before the tests are run. The `setUp` method can be used to set up items before each test.
 
-??? solution
+!!! tip "Question"
 
-    ```python
-    from unittest import TestCase
+    Use the `setUpClass` method to define the `cart` and `discount` variables for the unit tests defined in the previous question.
     
-    from my_module import calculate_total
+    ??? info "Solution"
     
-    
-    class TestMyModule(TestCase):
-
-        @classmethod
-        def setUpClass(cls) -> None:
-            item_1 = {"price": 1, "quantity": 3}
-            item_2 = {"price": 2, "quantity": 4}
-    
-            cls.cart = [item_1, item_2]
-            cls.discount = 0.5
+        ```python
+        from unittest import TestCase
         
-        def setUp(self) -> None:
-            print("Running a test!")
+        from my_module import calculate_total
+        
+        
+        class TestMyModule(TestCase):
     
-        def test_cart_empty(self) -> None:
-            cart = []
-    
-            with self.assertRaises(expected_exception=ValueError):
-                calculate_total(cart=cart, discount=self.discount)
-    
-        def test_invalid_discount(self) -> None:
-            discount = -1
-    
-            with self.assertRaises(expected_exception=ValueError):
-                calculate_total(cart=self.cart, discount=discount)
-    
-        def test_total(self) -> None:
-            expected = 5.5
-            calculated = calculate_total(cart=self.cart, discount=self.discount)
-    
-            self.assertEqual(first=expected, second=calculated)
-    ```
+            @classmethod
+            def setUpClass(cls) -> None:
+                item_1 = {"price": 1, "quantity": 3}
+                item_2 = {"price": 2, "quantity": 4}
+        
+                cls.cart = [item_1, item_2]
+                cls.discount = 0.5
+        
+            def test_cart_empty(self) -> None:
+                cart = []
+        
+                with self.assertRaises(expected_exception=ValueError):
+                    calculate_total(cart=cart, discount=self.discount)
+        
+            def test_invalid_discount(self) -> None:
+                discount = -1
+        
+                with self.assertRaises(expected_exception=ValueError):
+                    calculate_total(cart=self.cart, discount=discount)
+        
+            def test_total(self) -> None:
+                expected = 5.5
+                calculated = calculate_total(cart=self.cart, discount=self.discount)
+        
+                self.assertEqual(first=expected, second=calculated)
+        ```
 
 With the unit tests defined, they can be run using the following command:
 
 ```shell
 pytest
 ```
+
+!!! success "Pytest"
+
+    ```text
+    collected 3 items
+    
+    test_my_module.py ...          [100%]
+    
+    ==== 3 passed in 0.01s ====
+    ```
 
 The results from the test run will be printed in the console. See what happens when one of the expected exceptions is
 changed to a `TypeError`, for example.
@@ -181,6 +194,10 @@ The example from the previous section has been extended with another function, t
     
     ```python
     def get_cart() -> list[dict[str, int]]:
+        """
+        Get a shopping cart filled with pre-defined items.
+        """
+        
         cart = []
         
         for price in range(1, 3):
@@ -205,76 +222,78 @@ The example from the previous section has been extended with another function, t
         return total
     ```
 
-!!! exercise
+!!! tip "Question"
 
-    Complete the unit tests using the template below, the `test_invalid_discount` has already been filled in to give a hint.
+    Complete the unit tests using the template below. The `test_invalid_discount` has already been filled in to give a hint.
     The `get_cart` function remains untested in this example.
 
-    ```python
-    from unittest import TestCase
-    from unittest.mock import MagicMock, patch
+    !!! example "test_my_module.py"
     
-    from my_module import calculate_total
-    
-    
-    class TestMyModule(TestCase):
-    
-        @classmethod
-        def setUpClass(cls) -> None:
-            item_1 = {"price": 1, "quantity": 3}
-            item_2 = {"price": 2, "quantity": 4}
-    
-            cls.cart = [item_1, item_2]
-            cls.discount = 0.5
-    
-        @patch(target="my_module.get_cart")
-        def test_invalid_discount(self, mock_cart: MagicMock) -> None:
-            mock_cart.return_value = self.cart
-            discount = -1
-    
-            with self.assertRaises(expected_exception=ValueError):
-                calculate_total(discount=discount)
-    
-        def test_total(self) -> None:
-            pass
-    ```
+        ```python
+        from unittest import TestCase
+        from unittest.mock import MagicMock, patch
+        
+        from my_module import calculate_total
+        
+        
+        class TestMyModule(TestCase):
+        
+            @classmethod
+            def setUpClass(cls) -> None:
+                item_1 = {"price": 1, "quantity": 3}
+                item_2 = {"price": 2, "quantity": 4}
+        
+                cls.cart = [item_1, item_2]
+                cls.discount = 0.5
+        
+            @patch(target="my_module.get_cart")
+            def test_invalid_discount(self, mock_cart: MagicMock) -> None:
+                mock_cart.return_value = self.cart
+                discount = -1
+        
+                with self.assertRaises(expected_exception=ValueError):
+                    calculate_total(discount=discount)
+        
+            def test_total(self) -> None:
+                pass
+        ```
 
-??? solution
-
-    ```python
-    from unittest import TestCase
-    from unittest.mock import MagicMock, patch
+    ??? info "Solution"
     
-    from my_module import calculate_total
-    
-    
-    class TestMyModule(TestCase):
-    
-        @classmethod
-        def setUpClass(cls) -> None:
-            item_1 = {"price": 1, "quantity": 3}
-            item_2 = {"price": 2, "quantity": 4}
-    
-            cls.cart = [item_1, item_2]
-            cls.discount = 0.5
-    
-        @patch(target="my_module.get_cart")
-        def test_invalid_discount(self, mock_cart: MagicMock) -> None:
-            mock_cart.return_value = self.cart
-            discount = -1
-    
-            with self.assertRaises(expected_exception=ValueError):
-                calculate_total(discount=discount)
-    
-        @patch(target="my_module.get_cart")
-        def test_total(self, mock_cart: MagicMock) -> None:
-            mock_cart.return_value = self.cart
-    
-            expected = 5.5
-            calculated = calculate_total(discount=self.discount)
-    
-            self.assertEqual(first=expected, second=calculated)
-    ```
+        ```python
+        from unittest import TestCase
+        from unittest.mock import MagicMock, patch
+        
+        from my_module import calculate_total
+        
+        
+        class TestMyModule(TestCase):
+        
+            @classmethod
+            def setUpClass(cls) -> None:
+                item_1 = {"price": 1, "quantity": 3}
+                item_2 = {"price": 2, "quantity": 4}
+        
+                cls.cart = [item_1, item_2]
+                cls.discount = 0.5
+        
+            @patch(target="my_module.get_cart")
+            def test_invalid_discount(self, mock_cart: MagicMock) -> None:
+                mock_cart.return_value = self.cart
+                discount = -1
+        
+                with self.assertRaises(expected_exception=ValueError):
+                    calculate_total(discount=discount)
+        
+            @patch(target="my_module.get_cart")
+            def test_total(self, mock_cart: MagicMock) -> None:
+                mock_cart.return_value = self.cart
+        
+                expected = 5.5
+                calculated = calculate_total(discount=self.discount)
+        
+                self.assertEqual(first=expected, second=calculated)
+        ```
 
 ### Test coverage
 
@@ -338,15 +357,18 @@ of a piece of software. Usually, the user adds items to the cart via a GUI, pays
 entries are made in a database. When testing in this scope, the test is known as a system test. These could be defined to measure the application performance,
 functionalities, etc. 
 
-With only unit tests, nothing is said about the final results of the software. It might be perfect in calculating the total of a shopping cart,
-but was this needed in the first place? However, without unit tests, debugging a malfunctioning feature would be difficult, where to start?
-Thus, both should be defined to get a good overview of the software capabilities. The system tests highly depends on what is being tested, 
+Unit tests do not cover a sequence of events, nor their results. A software component might be perfect in calculating the total of a shopping cart,
+but what if another crashes based on this output? However, without unit tests, debugging such a malfunctioning sequence would be difficult.
+Thus, both tests compliment one another, and together they give a good overview of the software capabilities. The system tests highly depends on what is being tested, 
 but the following guidelines could help:
 
 - Provide a clear description of the scenario and the expected outcome.
 - Provide a configuration of the application (if needed).
 - Separate the system tests from the other tests.
 
-Sometimes it can also be of use to check the interactions between a few components. These tests are known as integration tests,
-and sit between the unit and system tests in terms of scope. Various other kinds of testing exist, but are beyond the scope of this workshop.
-All of them serve a single purpose, to find faults in the software before the user does. 
+## Further reading
+
+Various other kinds of testing exist, but are beyond the scope of this workshop. Software testing is regarded as a profession on its own,
+and more information about this topic can be found [here](https://www.geeksforgeeks.org/software-testing/types-software-testing/).
+The sheer number of different tests can be overwhelming at first, but keep in mind that all of them serve a single purpose, 
+to find faults in the software before the user does. 
