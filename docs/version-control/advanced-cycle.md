@@ -211,7 +211,7 @@ Immature projects require extensive reviews, which can include the following add
 - writing and running tests to check for breaking changes.
 - checking syntax.
 
-Especially teams that do not have [code quality](../clean-code/index.md) standards defined beforehand, can have comments related to code style and usage of dependencies.
+Especially teams that do not have [code quality](../code-quality/index.md) standards defined beforehand, can have comments related to code style and usage of dependencies.
 As these are often made as comments online, it is common to them concise and to the point. However, this could be perceived as pedantic, 
 and even a little patronising when receiving a few of these comments in sequence. For example:
 

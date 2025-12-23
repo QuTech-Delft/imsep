@@ -4,7 +4,7 @@ repo_url: https://github.com/QuTech-Delft/imsep
 theme:
   name: material
   logo: assets/images/logo.png
-  favicon: assets/images/favicon.ico
+  favicon: assets/images/logo.png
   features:
     - navigation.indexes
     - navigation.tabs
@@ -30,6 +30,13 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
   - search
@@ -46,9 +53,6 @@ nav:
   - Dependency management:
       - dependencies/index.md
       - Package managers: dependencies/package-managers.md
-  - Clean code:
-      - clean-code/index.md
-      - An introduction to testing: clean-code/basic-testing.md
-      - Advanced testing methods: clean-code/advanced-testing.md
-  - Glossary:
-      - glossary/index.md
+  - Code quality:
+      - code-quality/index.md
+      - An introduction to testing: code-quality/testing.md
