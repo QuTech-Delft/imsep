@@ -35,7 +35,7 @@ this might be sufficient, but could lead to a mismatch in the version used in de
     Windows machines. Tests for the latest Python builds fail, so `3.13` is the current maximum.
 
 On the fully-managed level, both the lower and upper limits of the dependencies are given. Additional constraints, like an OS-specific dependency,
-can usually be defined in a [package manager](#package-managers) as well.
+can usually be defined in a [package manager](./package-managers.md) as well.
 
 !!! example "Easily breakable dependency"
 
