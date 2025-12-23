@@ -13,6 +13,9 @@ hide:
 
 !!! abstract "Course overview"
     
+    This workshop means to introduce the basics of professional software development to PhD students and researchers at QuTech.
+    We firmly believe that adopting professional software development practices throughout our research organization will yield significant long-term advantages.
+    
     The workshop consists of four parts, each addressing a separate topic. They are meant to be followed in sequence,
     but can be read independently. Each part aims to answer common problems encountered during software development.
 
@@ -29,8 +32,3 @@ hide:
     - Have a machine which runs on Windows / macOS / Ubuntu.
     - Have Git 2+ installed.
     - Have Python 3.10+ installed, and able to understand common syntax (like an if-statement).
-
-## Goal
-
-This workshop means to introduce the basics of professional software development to PhD students and researchers at QuTech.
-We firmly believe that adopting professional software development practices throughout our research organization will yield significant long-term advantages.
