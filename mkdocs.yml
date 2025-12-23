@@ -52,6 +52,7 @@ nav:
       - Advanced development cycle: version-control/advanced-cycle.md
   - Dependency management:
       - dependencies/index.md
+      - Package managers: dependencies/package-managers.md
   - Code quality:
       - code-quality/index.md
       - An introduction to testing: code-quality/testing.md
