@@ -3,7 +3,7 @@ name: Deploy documentation
 on:
   push:
     branches:
-      - add-misc
+      - main
 
 jobs:
   deploy-docs:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          ref: "add-misc"
+          ref: "main"
 
       - name: Install Python
         uses: actions/setup-python@v5

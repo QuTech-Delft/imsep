@@ -1,23 +1,23 @@
 # IMSEP
 
 This repository contains the source material for the "Introduction to Modern Software Engineering Practices" workshop.
+The documentation website is automatically updated when changes are pushed to the default branch.
 
 ## Installation
 
-1. Clone the repository.
-2. Install poetry:
+1. Install poetry:
     
     ```shell
     pip install poetry
     ```
 
-3. Install the documentation dependencies:
+2. Install the documentation dependencies:
     
     ```shell
     poetry install
     ```
 
-4. Host the documentation locally:
+3. Host the documentation locally:
 
     ```shell
     mkdocs serve
