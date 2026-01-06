@@ -1,0 +1,12 @@
+[project]
+name = "imsep"
+version = "0.1.0"
+description = "Demonstration package for the IMSEP course."
+requires-python = ">=3.10,<4.0"
+authors = [{ name = "QuTech", email = "software@qutech.support"}]
+dependencies = [
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
