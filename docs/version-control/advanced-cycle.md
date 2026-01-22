@@ -222,12 +222,7 @@ and even a little patronising when receiving a few of these comments in sequence
 Code reviews are for the most part about the bigger picture. If there are consistent patterns throughout multiple comments, 
 it can be better to summarise it in a single one, or make the remark in-person.
 There can also be remarks that are far from tedious, and have a large impact on the suggested changes. In this scenario,
-it can be also beneficial to have a small meeting in-person, instead of writing an extensive comment. 
-In summary, don't do this:
-
-<figure markdown="span">
-  ![Code review](../assets/images/code_review.jpg){ width="600" }
-</figure>
+it can be also beneficial to have a small meeting in-person, instead of writing an extensive comment.
 
 ## Further reading
 
