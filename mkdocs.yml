@@ -1,0 +1,60 @@
+site_name: Introduction to modern software engineering practices
+repo_url: https://github.com/QuTech-Delft/imsep
+
+theme:
+  name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+  features:
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tracking
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+
+nav:
+  - Home:
+      - index.md
+  - Software development:
+      - software-development/index.md
+  - Version control:
+      - version-control/index.md
+      - Basic development cycle: version-control/basic-cycle.md
+      - Advanced development cycle: version-control/advanced-cycle.md
+  - Dependency management:
+      - dependencies/index.md
+      - Package managers: dependencies/package-managers.md
+  - Code quality:
+      - code-quality/index.md
+      - An introduction to testing: code-quality/testing.md
+  - Gallery:
+      - gallery/index.md
