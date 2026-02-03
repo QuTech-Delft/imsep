@@ -19,11 +19,14 @@ When a repository is initialised via a provider, this main branch is automatical
 and it is also tagged as the default branch.
 
 Apart from the initial setup of the project, it is good practice to create a new branch from the default branch before starting any form of development. 
-This way of branching gives a clear oversight of what is developed where, as depicted below.
+This way of branching gives a clear oversight of what is developed where. In a simple branching model, like the one depicted below,
+development is done in a feature branch, and eventually it is [merged](#merging) with the default branch.
 
 <figure markdown="span">
-  ![Advanced cycle](../assets/images/git_1.jpg){ width="600" }
+  ![Advanced cycle](../assets/images/simple.svg){ width="600" }
 </figure>
+
+*Courtesy of [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
 
 For the Git examples given on this page, a local repository will suffice. 
 The snippet below makes a new directory, creates a local Git repository, and creates the default branch:

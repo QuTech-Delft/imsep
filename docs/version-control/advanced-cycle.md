@@ -12,12 +12,14 @@
 The branch model for collaborative development is pretty much identical to the individual one, the only exception being 
 that multiple feature branches can exist at the same time. The idea is that each developer works on an item individually,
 and merge with the default branch once it is completed. It is not recommended to have multiple people work in the same branch.
-It often leads to conflicts when attempting to push changes. The merging of branches does not have to be done in the order in which they were created, 
-as depicted in the image below.
+It often leads to conflicts when attempting to push changes. When merging the feature branch into the default branch,
+other commitments could have been done previously, as depicted below.
 
 <figure markdown="span">
-  ![Advanced cycle](../assets/images/git_2.jpg){ width="600" }
+  ![Advanced cycle](../assets/images/advanced.svg){ width="600" }
 </figure>
+
+*Courtesy of [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
 
 !!! tip "Question"
 
@@ -111,7 +113,7 @@ The process of merging is depicted in the image below.
   ![Rebasing](../assets/images/merge.svg){ width="600" }
 </figure>
 
-*Courtesy of (stolen from) [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
+*Courtesy of [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
 
 The main upside of merging compared to rebasing (discussed next), is that it is a non-destructive operation.
 All the changes made in the default branch which are not yet included in the feature branch are contained in a merge commit.
@@ -128,7 +130,7 @@ A full list of scenarios in which to (not) use rebase can be found [here](https:
   ![Rebasing](../assets/images/rebase.svg){ width="600" }
 </figure>
 
-*Courtesy of (stolen from) [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
+*Courtesy of [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).*
 
 ## Merge conflicts
 
