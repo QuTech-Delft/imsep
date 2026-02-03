@@ -56,3 +56,5 @@ nav:
   - Code quality:
       - code-quality/index.md
       - An introduction to testing: code-quality/testing.md
+  - Gallery:
+      - gallery/index.md
