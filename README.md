@@ -22,3 +22,4 @@ The documentation website is automatically updated when changes are pushed to th
     ```shell
     mkdocs serve
     ```
+
