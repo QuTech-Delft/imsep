@@ -1,7 +1,6 @@
 # Gallery
 
 This "chapter" aims to describe common problems encountered during software engineering.
-Most images are a courtesy from [Reddit](https://www.reddit.com/r/programmingmemes/).
 
 ---
 
