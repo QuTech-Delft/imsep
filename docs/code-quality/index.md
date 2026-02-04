@@ -297,8 +297,8 @@ The following examples highlight these with a Python snippet:
 ## Quality
 
 Next to the styling and readability, the actual quality of the code is of importance as well. This can range from unnecessary duplication, 
-unused variables, to more error-prone mistakes, like re-declaring the same variable with a different type. This would be impossible in a language as C++,
-but is allowed in a dynamically-typed language like Python. 
+unused variables, to more error-prone mistakes, like re-declaring the same variable with a different type. 
+This would be difficult to achieve in a statically-typed language like C++, but is allowed in a dynamically-typed language like Python. 
 
 Various tools exist to help improve the code quality, and mature teams usually have these checks enforced. For Python,
 a tool like [Pylint](https://www.pylint.org/) can help identify "[code smells](https://refactoring.guru/refactoring/smells)" and most IDEs have built-in quality checks as well.

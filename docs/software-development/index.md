@@ -1,8 +1,9 @@
 # Software development
 
-Writing a small script for a friend, or working on a complex feature at a large software company, each piece of software can have different criteria.
-A large part is covered in its technical requirements, after all, the software is of no use when it cannot perform its intended functions.
+Each piece of software can have different criteria. When you're writing a small script for a friend, 
+these criteria will be less strict compared to a complex feature at a large software company, for example.
 
+A large part is covered in its technical requirements, after all, the software is of no use when it cannot perform its intended functions.
 However, an often overlooked part is its development. Should multiple developers be able to work on it? Should it be maintainable for an extensive period?
 These requirements do not affect the technical capabilities, but have a profound impact on its development.
 The QuTech software maturity model (QSMM) has been developed to help new projects understand what is demanded of their products from a software engineering perspective.
@@ -38,5 +39,5 @@ Will the code run in both cases? Will it still work after a few years? The softw
 
 Additionally, a software development template is available. By asking questions similar to those used in this chapter,
 it can help new projects find potential bottlenecks before development starts, instead of during. 
-Both QSMM and the template can be found [here](). For questions related to these documents, or software development in general,
-contact the [software development support team](https://qutech.support/contact/).
+Both QSMM and the template can be found in the shared Teams channel of the workshop. For questions related to these documents, 
+or software development in general, contact the [software development support team](https://qutech.support/contact/).
