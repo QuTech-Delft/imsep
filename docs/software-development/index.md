@@ -1,5 +1,10 @@
 # Software development
 
+!!! abstract "Overview"
+
+    - How can non-functional requirements be defined for software and its development?
+    - When are these non-functional requirements relevant?
+
 Each piece of software can have different quality criteria. When you're writing a small script for a friend, 
 these criteria will be less strict compared to a complex feature at a large software company, for example.
 A large part is covered in its technical requirements, after all, the software is of no use when it cannot perform its intended functions.
@@ -26,7 +31,7 @@ to determine its recommended software development maturity category.
 
 Using the analogy of writing a script for a friend, storing this script in a repository with full test coverage could be regarded as overengineering.
 But, at the same time, when this piece of software is used across a large company, this process could prove insufficient. What if one colleague runs it on Windows? While another uses Ubuntu?
-Will the code run in both cases? Will it still work after a few years? The software development maturity categories offer guidelines for these non-functional requirements.
+Will the code run in both cases? Will it still work after a few years? The software development maturity categories link the product category to the recommended development category.
 
 | Product category | Development category | Name       | Description                                                                                                                                                                                                                                                                                                                                     |
 |:-----------------|----------------------|:-----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
