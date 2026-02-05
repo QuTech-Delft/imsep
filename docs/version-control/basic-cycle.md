@@ -40,7 +40,8 @@ git switch --create "main"
 
 !!! note
 
-    All the snippets given in this chapter work in both (Git) Bash and PowerShell.
+    With the `git config --global init.defaultBranch main` configuration, a default branch will automatically be created when running the `git init` command.
+
 
 The second step is to create a new branch from the default branch. There are two ways to do this, with the second option
 being a shorthand for the first one:
@@ -166,7 +167,7 @@ collaborating with others, especially on the same piece of code. Chances of gett
 For now, a branch can simply be merged into the default branch with the following command:
 
 ```shell
-git switch "master"
+git switch "main"
 git merge "feature"
 ```
 

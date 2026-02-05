@@ -17,7 +17,7 @@ An example of this is the operating system (OS) shell. It is a CLI to interact w
 
 ### Linux
 
-Unix-based systems use the Bash shell by default. It can be recognised by the dollar sign at the start of the line.
+Unix-based systems typically use the Bash shell. It can be recognised by the dollar sign at the start of the line.
 In the example below, the following commands are executed:
 
 1. Make a new directory.
@@ -64,7 +64,7 @@ There are many more, which can be found online.
 ### MacOS
 
 Current versions of macOS use a slightly different version of the Bash shell, namely the Z-shell. 
-But, for all intends and purposes, it can be assumed identical for the commands used in this workshop.
+For this workshop, all provided commands work in both shells.
 
 ### Windows
 
@@ -91,7 +91,7 @@ The handy hotkeys for (Git) Bash unfortunately do not work in PowerShell.
 
 ## Git
 
-Version control starts with a base version of a text-based file, and tracks the changes made over time. 
+Version control tracks the changes made of text-based files over time. 
 When used properly, it enables a controlled flow of new features, and a rollback to a previous version will always be 
 possible. Next to these major benefits, it offers a complete history of the project, including its authors.
 At some point, multiple people could be working in the same file, with many more on the same project. Version control

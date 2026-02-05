@@ -117,7 +117,7 @@ The process of merging is depicted in the image below.
 
 The main upside of merging compared to rebasing (discussed next), is that it is a non-destructive operation.
 All the changes made in the default branch which are not yet included in the feature branch are contained in a merge commit.
-The doesn't alter the history of the feature branch, and new commits can be made after. The downside is an extra merge commit,
+This doesn't alter the history of the feature branch, and new commits can be made after. The downside is an extra merge commit,
 which can pollute the branch history with frequent merges.
 
 #### Rebasing
