@@ -35,3 +35,13 @@ class Triangle(Shape):
 
 class Trapezoid(Shape):
     pass
+
+
+class Pentagon(Shape):
+    pass
+
+
+class Hexagon(Shape):
+    pass
+
+# etc ...
