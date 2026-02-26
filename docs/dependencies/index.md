@@ -46,18 +46,18 @@ The fully-managed level could still contain easily breakable dependencies. Eithe
 When adding new dependencies to a code base, it is worth the effort to check the repository for potential red flags.
 This can show in the form of failing builds, incomplete test coverage, inconsistent versioning, etc.
 
-!!! info "Question"
-
+!!! tip "Question"
+    
     You want to add [this](https://pypi.org/project/apistar/#description) dependency to your code base, what could be potential pitfalls?
+    
+    ??? info "Answer"
 
-??? question "Answer"
-
-    The following items suggest this dependency could easily break in the near-future:
-
-    1. Last update was in 2019.
-    2. It reports a code coverage of only 85%.
-    3. The suggested Python version is already end-of-life.
-    4. No major version (1.X.X) is available.
+        The following items suggest this dependency could easily break in the near-future:
+   
+        1. Last update was in 2019.
+        2. It reports a code coverage of only 85%.
+        3. The suggested Python version is already end-of-life.
+        4. No major version (1.X.X) is available.
 
 ## Isolated environments
 
