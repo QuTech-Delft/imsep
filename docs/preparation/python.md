@@ -1,5 +1,3 @@
-from operator import length_hint
-
 # Python
 
 ## Basics
