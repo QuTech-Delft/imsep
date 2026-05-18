@@ -46,7 +46,8 @@ nav:
       - index.md
   - Preparation:
       - Python: preparation/python.md
-      - Using the command-line: preparation/command-line.md
+      - Shells: preparation/shells.md
+      - Credentials: preparation/credentials.md
   - Software development:
       - software-development/index.md
   - Version control:
