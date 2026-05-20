@@ -44,6 +44,11 @@ plugins:
 nav:
   - Home:
       - index.md
+  - Preparation:
+      - preparation/index.md
+      - Python: preparation/python.md
+      - Shells: preparation/shells.md
+      - SSH: preparation/ssh.md
   - Software development:
       - software-development/index.md
   - Version control:
