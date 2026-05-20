@@ -45,9 +45,10 @@ nav:
   - Home:
       - index.md
   - Preparation:
+      - preparation/index.md
       - Python: preparation/python.md
       - Shells: preparation/shells.md
-      - Credentials: preparation/credentials.md
+      - SSH: preparation/ssh.md
   - Software development:
       - software-development/index.md
   - Version control:
