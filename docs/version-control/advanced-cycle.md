@@ -10,8 +10,8 @@
 ## Branches
 
 The branch model for collaborative development is pretty much identical to the individual one, the only exception being 
-that multiple feature branches can exist at the same time. The idea is that each developer works on an item individually,
-and merge with the default branch once it is completed. It is not recommended to have multiple people work in the same branch.
+that multiple feature branches can exist at the same time. The idea is that each developer works on an item individually 
+and merges with the default branch once it is completed. It is not recommended to have multiple people work in the same branch.
 It often leads to conflicts when attempting to push changes. When merging the feature branch into the default branch,
 other commitments could have been done previously, as depicted below.
 
@@ -104,7 +104,7 @@ git pull
 
 #### Merging
 
-Additionally, before a feature branch can be merged, it needs to be "up-to-date" with the changes from the default branch.
+Additionally, before a feature branch can be merged, it needs to be "up to date" with the changes from the default branch.
 In this case, the default branch is first merged into the feature branch. Note that this update is not done with the `git pull` command, 
 but rather with `git merge "<DEFAULT>"`. If identical files have changed in both branches, it will lead to a merge conflict.
 The process of merging is depicted in the image below.
