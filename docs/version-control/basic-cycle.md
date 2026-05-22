@@ -42,7 +42,6 @@ git switch --create "main"
 
     With the `git config --global init.defaultBranch main` configuration, a default branch will automatically be created when running the `git init` command.
 
-
 The second step is to create a new branch from the default branch. There are two ways to do this, with the second option
 being a shorthand for the first one:
 
@@ -68,7 +67,7 @@ a simple textfile is used instead of real code (within the `~/workshop` director
 echo "Hello Git!" > code.txt
 ```
 
-Git registers that the repository contains "untracked" files, as in, changes made to these files can not be tracked,
+Git registers that the repository contains "untracked" files, as in, changes made to these files cannot be tracked,
 as there isn't a reference version of the file in the repository yet:
 
 ```shell
@@ -96,7 +95,7 @@ There is also an option to add all files at once to Git, but this could easily i
 git add code.txt
 ```
 
-The last step is commit this change to the repository. It's good practice to use short, but descriptive commit messages.
+The last step is to commit this change to the repository. It's good practice to use short, but descriptive commit messages.
 Imagine having to find the commit where a bug was introduced, and all of them were called "added feature":
 
 ```shell
@@ -120,7 +119,7 @@ It is recommended to use a GUI for this.
 
 ## Restoring files
 
-Often it can be useful to make temporary changed to code, simply to check something, or for debugging purposes. 
+Often it can be useful to make temporary changes to the code, simply to check something or for debugging purposes. 
 Git offers a command to immediately restore the file to the version stored in the current branch:
 
 ```shell
@@ -137,10 +136,9 @@ In both cases, `git status` should reflect the intended recovery.
 
 ## Ignoring files
 
-When working with large repositories, and/or a variety of tools that create local files, the Git status page can quickly become filled with files, 
-of which a large portion should not be commited. Having to select the right file each time would be an arduous job, 
-and in this scenario the ignore functionality comes into its own. Files and/or directories can be ignored based on a pattern, 
-of which the following are useful to remember:
+When working with large repositories and/or a variety of tools that create local files, the Git status page can quickly become filled with files. 
+Most of the time, a large portion of these should not be committed. Having to select the right file each time would be an arduous job, 
+and in this scenario the ignore-functionality of Git comes into its own. Files and/or directories can be ignored based on a pattern like the ones below:
 
 - `/hello`, the "hello" directory in the root directory is ignored.
 - `hello`, anything named "hello" in the root directory is ignored.
@@ -163,7 +161,7 @@ The `git status --ignored` command can be used to see the ignored files.
 ## Merging
 
 When developing in a single branch at the time, merging is straight-forward. This becomes a different story when 
-collaborating with others, especially on the same piece of code. Chances of getting a [merge conflict](advanced-cycle.md/#merge-conflicts) in these scenarios are high.
+collaborating with others, especially on the same piece of code. The chances of getting a [merge conflict](advanced-cycle.md/#merge-conflicts) in these scenarios are high.
 For now, a branch can simply be merged into the default branch with the following command:
 
 ```shell
@@ -180,7 +178,7 @@ git branch --delete "feature"
 ## Summary
 
 On this page, only the basics commands of Git have been addressed. They are meant to explain the standard workflow, but it is by no means complete.
-Git offers many more [commands](https://git-scm.com/docs) which could be very useful in a specific scenario. 
+Git offers many more [commands](https://git-scm.com/docs) which could be invaluable in a specific scenario. 
 It also offers its own tutorial, which can be accessed with the `git help tutorial` command.
 
 !!! tip "Question"

@@ -7,10 +7,10 @@
 
 Each piece of software can have different quality criteria. When you're writing a small script for a friend, 
 these criteria will be less strict compared to a complex feature at a large software company, for example.
-A large part is covered in its technical requirements, after all, the software is of no use when it cannot perform its intended functions.
+A large part is covered in its technical requirements. After all, the software is of no use when it cannot perform its intended functions.
 
 However, an often overlooked part is its development. Should multiple developers be able to work on it? Should it be maintainable for an extensive period?
-These requirements do not affect the technical capabilities, but have a profound impact on its development.
+These requirements do not affect the technical capabilities but have a profound impact on its development.
 The QuTech software maturity model (QSMM) has been developed to help new projects understand what is demanded of their products from a software engineering perspective.
 
 ## Software product maturity
@@ -26,6 +26,22 @@ to determine its recommended software development maturity category.
 | 2          | Proven          | Software developed primarily to prove that a technology works, or developed as part of a research project.  | Small software product consisting of a few components that are used by a limited number of internal users (e.g., a project or research group). Long-term maintenance has to be considered, as it is distributed and has a lifespan longer than the setting in which it was developed.                                                      |
 | 3          | Mature          | Strategic, business/research objectives driven systems internally used over a longer period.                | Small projects delivering reliable software products that are used by a group of users and is often mission critical. When successful, the user base of an internal product may optionally be extended to external users. Long term maintenance is needed but organized within the user-group.                                             |
 | 4          | Commercial-like | Products (operational environment, external facing)                                                         | Large projects with complex, public facing software products developed within separate software development teams. Long term software maintenance is done, often by different software engineers than the original developers.                                                                                                             |
+
+!!! tip "Question"
+
+    Select the appropriate category for the following software products:
+
+    1. Spotify.
+    2. Data acquisition tool for reseachers within the company.
+    3. Script to automatically start the coffee machine at home.
+    4. Code attached to a research paper.
+    
+    ??? info "Solution"
+    
+        1. Category 4, long term software project with millions of users.
+        2. Category 3, smaller software project, but with long term use, and expected reliability.
+        3. Category 1, although coffee can be considered mission critical for some.
+        4. Category 2, it is intended to be shared and used by others, but lacks support and maintenance.
 
 ## Software development maturity
 
@@ -46,3 +62,14 @@ Additionally, a software development template is available. By asking questions 
 it can help new projects find potential bottlenecks before development starts, instead of during. 
 Both QSMM and the template can be found in the shared Teams channel of the workshop. For questions related to these documents, 
 or software development in general, contact the [software development support team](https://qutech.support/contact/).
+
+!!! tip "Question"
+
+    What would have been the ideal development category for the software products from the previous question?
+    
+    ??? info "Solution"
+    
+        1. Category 6, as it is a widely used commercial product.
+        2. Category 4, but it would likely be category 2 in reality.
+        3. Category 1, ad hoc debugging until it works.
+        4. Category 2, but would also be lower in most cases. 
