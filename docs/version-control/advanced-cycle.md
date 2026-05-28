@@ -52,7 +52,7 @@ the following command automatically updates the origin:
 git push
 ```
 
-However, when creating local branches, this configuring is not done automatically. E.g., the following sequence of commands will fail,
+However, when creating local branches, this configuring is not done automatically. E.g. the following sequence of commands will fail,
 as Git does not understand where to push to:
 
 ```shell
@@ -123,7 +123,7 @@ which can pollute the branch history with frequent merges.
 #### Rebasing
 
 Instead of merging, the rebase option could be used. With `git rebase "<DEFAULT>"`, the history of the feature branch starts after the last commit from the default branch.
-This option provides a much cleaner project history compared to merging, but has to the potential to accidentally re-write history when misused.
+This option provides a much cleaner project history compared to merging but has the potential to accidentally re-write history when misused.
 A full list of scenarios in which to (not) use rebase can be found [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
 
 <figure markdown="span">
@@ -176,7 +176,7 @@ This can be done by editing the file in a text editor or in the GUI provided by 
     change(s) from second developer
     ```
 
-Note that the mark blocks like `<<<<<<< HEAD` have to be manually removed. After, the standard procedure for commiting changes can be followed,
+Note that the mark blocks like `<<<<<<< HEAD` have to be manually removed. After the standard procedure for commiting changes can be followed,
 and the conflict is resolved. When merge conflicts get more complex, e.g. between blocks of code, and across multiple files, a GUI can be preferred. 
 It usually excels in giving an overview of what needs to be fixed where compared to the command-line.
 
@@ -185,11 +185,11 @@ It usually excels in giving an overview of what needs to be fixed where compared
 In collaborative repositories, the default branch should be protected. This means no changes can be directly pushed to it,
 and merges can only occur when certain conditions have met, e.g. an approval after a [code review](#code-reviews).
 A merge request can be opened through a GUI in the remote repository. This can be a webpage, via an IDE, or a separate program,
-depending on the provider. Keep in mind that even though a merge request is closely connect to Git, it is not a feature of Git.
+depending on the provider. Keep in mind that even though a merge request is closely connected to Git, it is not a feature of Git.
 The name of the request can also differ across providers. In GitHub, it is known as a pull request.
 
 The merge request can be coupled to a CI/CD pipeline, which is an automated execution
-of a number of tasks. This can be a task which runs the code tests, checks the dependencies etc. 
+of a number of tasks. This can be a task that runs the code tests, checks the dependencies etc. 
 Setting up such a pipeline is beyond the scope of this workshop. An open merge request is a sign for other developers that the suggested changes can be reviewed.
 
 Once the merge request is set to merge, it usually triggers a few Git commands, depending on the configuration of the repository:
@@ -202,11 +202,11 @@ Once the merge request is set to merge, it usually triggers a few Git commands, 
 ## Code reviews
 
 Depending on the maturity of the project and/or developers, the code review can serve multiple functions. 
-[Mature](../software-development/index.md#software-development-maturity) projects allows reviews to focus on their primary purpose, namely checking 
+[Mature](../software-development/index.md#software-development-maturity) projects allow reviews to focus on their primary purpose, namely checking 
 if the suggested change(s) are optimal with respect to the desired feature(s) and if it could lead to unforeseen problems.
 
-When reviewing codes from inexperienced developers, or vise versa, it could be useful to understand the syntax, 
-and simply ask questions about what is happening. This way, either of them can learn something new, and the proficiency of the team increases. 
+When reviewing codes from inexperienced developers, or vise versa, it could be useful to understand the syntax 
+and ask questions about what is happening. This way, either of them can learn something new, and the proficiency of the team increases. 
 Immature projects require extensive reviews, which can include the following additional items:
 
 - understanding the philosophy behind the changes.
@@ -214,7 +214,7 @@ Immature projects require extensive reviews, which can include the following add
 - checking syntax.
 
 Especially teams that do not have [code quality](../code-quality/index.md) standards defined beforehand, can have comments related to code style and usage of dependencies.
-As these are often made as comments online, it is common to them concise and to the point. However, this could be perceived as pedantic, 
+As these are often made as comments online, it is common to them concise and to the point. However, this could be perceived as pedantic  
 and even a little patronising when receiving a few of these comments in sequence. For example:
 
 1. "function names must be lowercase"
@@ -222,14 +222,14 @@ and even a little patronising when receiving a few of these comments in sequence
 3. "why don't you use Path library here?"
 
 Code reviews are for the most part about the bigger picture. If there are consistent patterns throughout multiple comments, 
-it can be better to summarise it in a single one, or make the remark in-person.
-There can also be remarks that are far from tedious, and have a large impact on the suggested changes. In this scenario,
-it can be also beneficial to have a small meeting in-person, instead of writing an extensive comment.
+it can be better to summarise it in a single one or make the remark in-person.
+There can also be remarks that are far from tedious and have a large impact on the suggested changes. In this scenario,
+it can also be beneficial to have a small meeting in person instead of writing an extensive comment.
 
 ## Further reading
 
-In the merge request section, squash commits were mentioned. This is one example of the many other kinds of "exotic" commits available in Git.
-Setting up such a commit, is beyond the scope of this workshop, but tutorials can be found [online](https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together).
+In the merge request section, squash commits were mentioned. This is one example of the more "exotic" commits available in Git.
+Setting up such a commit is beyond the scope of this workshop, but tutorials can be found [online](https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together).
 
 Additionally, software projects usually have a ticket system for bugs, tasks, etc. 
 Branches and merge requests belonging to the ticket are automatically coupled for convenience for the developers.

@@ -178,7 +178,7 @@ git branch --delete "feature"
 ## Summary
 
 On this page, only the basics commands of Git have been addressed. They are meant to explain the standard workflow, but it is by no means complete.
-Git offers many more [commands](https://git-scm.com/docs) which could be invaluable in a specific scenario. 
+Git offers many more [commands](https://git-scm.com/docs), each of which can be invaluable in a specific scenario. 
 It also offers its own tutorial, which can be accessed with the `git help tutorial` command.
 
 !!! tip "Question"
