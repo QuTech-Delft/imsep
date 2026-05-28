@@ -8,12 +8,12 @@
 
 ## Clean code
 
-Imagine you are reading a well-organized book or following a simple recipe. Each step is clear, easy to understand, and there’s no unnecessary clutter. 
+Imagine you are reading a well-organised book or following a simple recipe. Each step is clear, easy to understand, and there’s no unnecessary clutter. 
 Now imagine the opposite, a messy, confusing set of instructions where you’re constantly backtracking to figure out what’s going on. 
 This is the difference between “clean code” and messy code in programming. Clean code promotes:
 
 - Teamwork, other developers are less likely to get stuck deciphering code.
-- Longevity, future changes can be applied more easily and the code tends to keep running longer without breaking.
+- Longevity, future changes can be applied more easily, and the code tends to keep running longer without breaking.
 - Quality, the chance of introducing bugs is smaller, and the overall user experience of the software is more likely to be positive.
 
 !!! note
@@ -25,7 +25,7 @@ This is the difference between “clean code” and messy code in programming. C
 In mechanical engineering, engineers don't just start building. Usually, an elaborate design process precedes the manufacturing and test phases.
 Software engineering has the benefit of not requiring materials, but the same principles apply. 
 Constructing a complete design from scratch is beyond the scope of this workshop,
-but asking the following questions, can already save some effort in the development phase:
+but asking the following questions can already save some effort in the development phase:
 
 1. What does the user expect from the program?
 2. What is the [sequence](https://plantuml.com/sequence-diagram) of actions from the program to meet these expectations?
@@ -36,7 +36,7 @@ but asking the following questions, can already save some effort in the developm
 ## Readability
 
 Right from the start, everything should be written in such a way to promote readability. From the highest level, e.g. modules, to function level,
-it should tell a story of what is happening. Variable names, and function parameters should further promote in telling this story.
+it should tell a story of what is happening. Variable names and function parameters should further promote in telling this story.
 A tedious function can quickly become unreadable when this ideology is not followed:
 
 !!! failure "What is going on?"
@@ -71,7 +71,7 @@ combined with specific syntax from other libraries, like Numpy or Pandas...
         return total
     ```
 
-The profound difference in readability can clearly be seen. Even when codes solve more complex problems,
+The profound difference in readability can be seen. Even when code solves abstract problems, like mathematics,
 it can maintain its readability when sufficient effort is put in. A warning sign is when functions require more and more comments to make sense.
 This is usually a good moment to refactor the original function into smaller ones with a specific purpose, review the design, etc.
 
@@ -92,10 +92,10 @@ discussions about code style. "Should we use spaces between mathematical operati
 Fortunately, as Python is a mature language, most of this has already been figured out. Guidelines exist known as the [Python Enhancement Proposals](https://peps.python.org/) (PEP).
 
 [PEP 8](https://peps.python.org/pep-0008/) focuses on code style, and packages exist which automatically enforce these guidelines.
-However, many good practices are not covered by these packages, and are often learnt through experience. 
+However, many good practices are not covered by these packages and are often learnt through experience. 
 The following examples highlight these with a Python snippet:
 
-1. The use of visual clustering, so that parts of the code that “belong” together are easily recognisable:
+1. The use of visual clustering so that parts of the code that “belong” together are easily recognisable:
 
     !!! failure "No clustering"
          
@@ -111,7 +111,7 @@ The following examples highlight these with a Python snippet:
             return total
          ```
     
-    Each cluster could be seperated by comment, however, when written properly, these comments are often not needed.
+    Each cluster could be separated by a comment. However, when written properly, these comments are often not needed.
     In the example below, these (redundant) comments are given to illustrate the effect of clustering.
     
     ??? success "Clustered"
@@ -253,7 +253,7 @@ The following examples highlight these with a Python snippet:
 
 5. The use of descriptive names:
 
-    Especially when coding mathematics, it is tempting to fall back to their mathematical descriptors. Take the function for dynamic pressure for example:
+    Especially when coding mathematics, it is tempting to fall back to their mathematical descriptors. Take the function for dynamic pressure, for example:
 
     !!! example "Dynamic pressure"
     
@@ -261,7 +261,7 @@ The following examples highlight these with a Python snippet:
         p = \frac{1}{2} * \rho * V^2
         $$
     
-    How to code this? It matters on the context. If it is software coded by mainly physicists for other physicists in the same field,
+    How to code this? It depends on the context. If it is software coded mainly by physicists for other physicists in the same field,
     falling back to the mathematical descriptors could be acceptable (whilst using a descriptive function name):
     
     !!! example "Mathematical code"
@@ -298,7 +298,7 @@ The following examples highlight these with a Python snippet:
 
 Next to the styling and readability, the actual quality of the code is of importance as well. This can range from unnecessary duplication, 
 unused variables, to more error-prone mistakes, like re-declaring the same variable with a different type. 
-This would be difficult to achieve in a statically-typed language like C++, but is allowed in a dynamically-typed language like Python. 
+This would be difficult to achieve in a statically typed language like C++, but is allowed in a dynamically typed language like Python. 
 
 Various tools exist to help improve the code quality, and mature teams usually have these checks enforced. For Python,
 a tool like [Pylint](https://www.pylint.org/) can help identify "[code smells](https://refactoring.guru/refactoring/smells)" and most IDEs have built-in quality checks as well.
@@ -374,13 +374,13 @@ Sometimes, it can be an arduous job to correctly type-hint code (especially with
 Certain elements should always be in a docstring, namely:
 
 - A brief description of what the function does.
-- What are the inputs, their type, with a brief description.
+- What are the inputs, their type? Preferably with a brief description.
 - What does the function return, if anything?
 
 Optionally, it is nice to have:
 
 - A list of the errors which can be raised with their description.
-- If the docstring start to turn into a story, or if it simply cannot be properly described with text alone, it is recommended to include a "See Also" section.
+- If the docstring starts to turn into a story, or if it simply cannot be properly described with text alone, it is recommended to include a "See Also" section.
 It can contain a link to the design documentation, research paper, etc.
 - Examples of what the function calculates based on the inputs, e.g.:
 

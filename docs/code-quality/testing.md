@@ -11,8 +11,8 @@
 ## Unit testing
 
 Unit testing is the first step in testing software. A code block is tested for its correctness, usually
-limited to a function. If multiple scenario's exist (in the form of if-statements, for example) each scenario is tested.
-This way, bugs existing on the lowest level can easily be found and overall confidence in the code base grows.
+limited to a function. If multiple scenarios exist (in the form of if-statements, for example), each scenario is tested.
+This way, bugs existing on the lowest level can easily be found, and overall confidence in the code base grows.
 
 ### Setting up a unit test
 
@@ -184,11 +184,11 @@ changed to a `TypeError`, for example.
 
 ### Mocking an external component
 
-What happens if a function calls another function? From a unit testing perspective, this function is external, and should be replaced with
+What happens if a function calls another function? From a unit testing perspective, this function is external and should be replaced with
 whatever it returns. This process is known as "mocking", and `unittest` provides a module for this.
 If not mocked, this could cascade into testing multiple functions and/or classes at once. Even though this is still useful,
 it is known as an integration test. These tests should only be defined once the unit tests succeed. 
-The example from the previous section has been extended with another function, to define the shopping cart:
+The example from the previous section has been extended with another function to define the shopping cart:
 
 !!! example "my_module.py"
     
@@ -348,18 +348,18 @@ If an empty value is found, the code needs to raise an error. Similarly, when a 
 Without filling in the details, the previous example already helps with setting up the "skeleton" of the source code.
 It will likely consist of two functions, each with an if-statement which raises an error. The philosophy also helps 
 to better apply object-oriented programming (OOP). By thinking of all the design choices beforehand, it is easier to find
-related objects, and identify potential use cases for inheritance, instead of refactoring the source code during development.
+related objects and identify potential use cases for inheritance instead of refactoring the source code during development.
 
 ## System testing
 
-Continuing with the shopping cart example, adding an item to a cart and calculate the cost is often not the end result
-of a piece of software. Usually, the user adds items to the cart via a GUI, pays via an external provider, and new
+Continuing with the shopping cart example, adding an item to a cart and calculating the cost is often not the final result
+of a software piece. Usually, the user adds items to the cart via a GUI, pays via an external provider, and new
 entries are made in a database. When testing in this scope, the test is known as a system test. These could be defined to measure the application performance,
 functionalities, etc. 
 
-Unit tests do not cover a sequence of events, nor their results. A software component might be perfect in calculating the total of a shopping cart,
+Unit tests do not cover a sequence of events, nor their results. A software component might be perfect in calculating the total of shopping carts,
 but what if another crashes based on this output? However, without unit tests, debugging such a malfunctioning sequence would be difficult.
-Thus, both tests compliment one another, and together they give a good overview of the software capabilities. The system tests highly depends on what is being tested, 
+Thus, both tests compliment one another, and together they give a good overview of the software capabilities. The system tests highly depend on what is being tested, 
 but the following guidelines could help:
 
 - Provide a clear description of the scenario and the expected outcome.
