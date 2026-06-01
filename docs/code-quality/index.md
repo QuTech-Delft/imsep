@@ -55,11 +55,7 @@ combined with specific syntax from other libraries, like Numpy or Pandas...
 ??? success "Oh ..."
 
     ```python
-    def calculate_total(cart: list[dict[str, int]], discount: float = 0) -> float:
-        """
-        Calculate the total price of the items in the shopping cart, and apply the discount rate.
-        """
-    
+    def calculate_total(cart, discount) -> float:
         if not cart:
             raise ValueError("Cart cannot be empty.")
         if not (0 <= discount <= 1):
@@ -100,14 +96,13 @@ The following examples highlight these with a Python snippet:
     !!! failure "No clustering"
          
          ```python
-         def calculate_total(cart, discount_rate):
+         def calculate_total(cart, discount):
             if not cart:
                raise ValueError("Cart cannot be empty.")
-            if not (0 <= discount_rate <= 1):
-               raise ValueError("Discount rate must be between 0 and 1.")
             subtotal = sum(item['price'] * item['quantity'] for item in cart)
-            discount = subtotal * discount_rate
-            total = subtotal - discount
+            if not (0 <= discount <= 1):
+               raise ValueError("Discount rate must be between 0 and 1.")
+            total = (1 - discount) * subtotal
             return total
          ```
     
@@ -117,12 +112,12 @@ The following examples highlight these with a Python snippet:
     ??? success "Clustered"
          
          ```python
-         def calculate_total(cart, discount_rate):
+         def calculate_total(cart, discount):
             
             # check inputs
             if not cart:
                raise ValueError("Cart cannot be empty.")
-            if not (0 <= discount_rate <= 1):
+            if not (0 <= discount <= 1):
                raise ValueError("Discount rate must be between 0 and 1.")
             
             # calculate totals
@@ -202,56 +197,7 @@ The following examples highlight these with a Python snippet:
         
             Don't attempt to understand this code, life is too short! Make a respectiful comment to the developer about the code style instead.
 
-4. Logical flow of classes and/or functions:
-
-    !!! failure "random order"
-
-        ```python
-        def main():
-            helper_1()
-            helper_2()
-
-        def helper_2():
-            helper_3()
-            helper_4()
-
-        def helper_3():
-            pass
-        
-        def helper_1():
-            pass
-
-        def helper_4():
-            pass
-        ```
-    
-    ??? success "ordered"
-
-        ```python
-        def main():
-            helper_1()
-            helper_2()
-
-        def helper_1():
-            pass
-
-        def helper_2():
-            helper_3()
-            helper_4()
-
-        def helper_3():
-            pass
-
-        def helper_4():
-            pass
-        ```
-    
-    !!! note
-        
-        In classes there is the extra element of different method types, e.g. a class method after a static method.
-        There is no right or wrong in mixing, as long as it makes sense to the reader.
-
-5. The use of descriptive names:
+4.  The use of descriptive names:
 
     Especially when coding mathematics, it is tempting to fall back to their mathematical descriptors. Take the function for dynamic pressure, for example:
 
@@ -293,6 +239,55 @@ The following examples highlight these with a Python snippet:
 
     There are countless examples where abbreviated variable names cause confusion, and contests actually exist in which to write the most incomprehensible code as possible,
     but this is usually not desired in the working environment. 
+
+5.  Logical flow of classes and/or functions:
+
+    !!! failure "random order"
+    
+        ```python
+        class Simulation:
+
+            def __init__(self):
+                pass
+
+            def generate_results(self):
+                pass
+
+            def run_simulation(self):
+                pass
+
+            def get_config(self):
+                pass
+
+            def prepare_simulation(self):
+                pass
+        ```
+    
+    ??? success "ordered"
+
+        ```python
+        class Simulation:
+
+            def __init__(self):
+                pass
+
+            def get_config(self):
+                pass
+
+            def prepare_simulation(self):
+                pass
+
+            def run_simulation(self):
+                pass
+
+            def generate_results(self):
+                pass
+        ```
+    
+    !!! note
+        
+        In classes there is the extra element of different method types, e.g. a class method after a static method.
+        There is no right or wrong in mixing, as long as it makes sense to the reader.
 
 ## Quality
 
@@ -350,20 +345,16 @@ Each parameter and return value should be type-hinted, and cases when it can be 
 !!! example "Type-hinting"
 
     ```python
-    class MyClass:
-   
-        def __init__(self, a: int, b: int) -> None:
-            self.a = a
-            self.b = b
-            self.c: list[int] = []
-       
-        def my_method(self, c: int) -> int:
-            self.c.append(c)
-            return self.a + self.b + sum(self.c)
-   
-   
-    def my_function(my_class: MyClass) -> None:
-        print(my_class.a + my_class.b)
+    def calculate_total(cart: dict[str, int], discount: float) -> float:
+        if not cart:
+           raise ValueError("Cart cannot be empty.")
+        if not (0 <= discount <= 1):
+           raise ValueError("Discount rate must be between 0 and 1.")
+
+        subtotal = sum(item["price"] * item["quantity"] for item in cart)
+        total = (1 - discount) * subtotal
+
+        return total
     ```
 
 [Mypy](https://mypy.readthedocs.io/en/stable/#) can be used for both checking type-hinting and explanations as to why certain variables are incorrectly typed.
