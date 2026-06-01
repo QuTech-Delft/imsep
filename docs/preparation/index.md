@@ -1,7 +1,7 @@
 # Preparation
 
-In order to understand the material discussed during the workshop, some background knowledge is required.
-Each chapter addresses one of the prerequisites given below.
+To understand the material discussed during the workshop, some background knowledge is required.
+Each section addresses one of the prerequisites given below.
 
 !!! abstract "Prerequisites"
 

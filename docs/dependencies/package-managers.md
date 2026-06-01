@@ -8,7 +8,7 @@ It serves as a convenient file which many Python tools use for configuration, in
 
 ## Configuring metadata
 
-Before using the `pyproject.toml` to configure specific packages, the project metadata need to be defined. 
+Before using the `pyproject.toml` to configure specific packages, the project metadata needs to be defined. 
 Most of the information is added to the package when it is distributed to a package registry, like the [Python Package Index](https://pypi.org/) (PyPI). 
 An example with the mandatory metadata is given below. 
 
@@ -28,7 +28,7 @@ An example with the mandatory metadata is given below.
     ```
 
 There are more options available, like a link to the repository, a list of maintainers, etc. In most cases, a [software licence](https://choosealicense.com/licenses/) is given as well.
-Either as link, or as a separate file, usually called `LICENCE.md`. Software licencing is beyond the scope of a workshop,
+Either as link or as a separate file, usually called `LICENCE.md`. Software licencing is beyond the scope of a workshop,
 but specific information about the TU Delft software policy can be found [here](https://zenodo.org/records/4629662).
 
 ## Poetry
@@ -86,7 +86,7 @@ The steps to publish a package are highly coupled to the package manager used, b
 2. Configure a token from a PyPI account. There is also a [test version](https://test.pypi.org/) of PyPI available, it requires a separate account and token.
 3. Build and publish the package on PyPI.
 
-Obviously, when publishing to a private registry, different credentials need to be configured. 
+When publishing to a private registry, different credentials need to be configured. 
 
 ### Package versioning
 

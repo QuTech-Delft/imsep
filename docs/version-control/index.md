@@ -13,7 +13,7 @@ possible. Next to these major benefits, it offers a complete history of the proj
 At some point, multiple people could be working in the same file, with many more on the same project. Version control
 ensures the changes are applied in a controlled fashion, instead of becoming an incomprehensible mess.
 
-Git is the most commonly-used CLI tool to manage version control. It is applied to a special storage system called a repository.
+Git is the most commonly used CLI tool to manage version control. It is applied to a special storage system called a repository.
 Normally, the repository is stored in a remote location, like [GitHub](https://github.com/) or [GitLab](https://gitlab.com/), 
 and collaborators copy this repository locally to contribute to the project. This process is called "cloning".
 With the desired changes made, the contributors then "push" their changes to the remote repository. 
@@ -60,17 +60,17 @@ git clone "<URL>"
 
 !!! note
 
-    Most providers offer an HTTPS and an SSH option to clone repositories with. SSH is safer, but requires a more extensive setup,
-    which is not covered in this workshop. With HTTPS the user is usually prompted for credentials, or an access token can be used.
+    Most providers offer an HTTPS and an SSH option to clone repositories with. 
+    In this workshop the SSH option is used, as it is safer.
 
-After cloning, it could be useful to store the credentials when prompted for them. This way, they don't need to be re-typed every time.
+After cloning with HTTPS, it could be useful to store the credentials when prompted for them. This way, they don't need to be re-typed every time.
 To configure the helper for the credentials:
 
 ```shell
 git config credential.helper store
 ```
 
-Note that the `--global` flag is not used, this configuration is only valid for the current repository. 
+Note that when the `--global` flag is not used, the configuration is only valid for the current repository. 
 The credentials can be found (and deleted) in `~/.git-credentials`. When using SSH, the helper doesn't need to be used.
 
 ### Create a local repository

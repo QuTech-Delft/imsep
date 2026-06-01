@@ -8,12 +8,12 @@
 
 ## Clean code
 
-Imagine you are reading a well-organized book or following a simple recipe. Each step is clear, easy to understand, and there’s no unnecessary clutter. 
+Imagine you are reading a well-organised book or following a simple recipe. Each step is clear, easy to understand, and there’s no unnecessary clutter. 
 Now imagine the opposite, a messy, confusing set of instructions where you’re constantly backtracking to figure out what’s going on. 
 This is the difference between “clean code” and messy code in programming. Clean code promotes:
 
 - Teamwork, other developers are less likely to get stuck deciphering code.
-- Longevity, future changes can be applied more easily and the code tends to keep running longer without breaking.
+- Longevity, future changes can be applied more easily, and the code tends to keep running longer without breaking.
 - Quality, the chance of introducing bugs is smaller, and the overall user experience of the software is more likely to be positive.
 
 !!! note
@@ -25,7 +25,7 @@ This is the difference between “clean code” and messy code in programming. C
 In mechanical engineering, engineers don't just start building. Usually, an elaborate design process precedes the manufacturing and test phases.
 Software engineering has the benefit of not requiring materials, but the same principles apply. 
 Constructing a complete design from scratch is beyond the scope of this workshop,
-but asking the following questions, can already save some effort in the development phase:
+but asking the following questions can already save some effort in the development phase:
 
 1. What does the user expect from the program?
 2. What is the [sequence](https://plantuml.com/sequence-diagram) of actions from the program to meet these expectations?
@@ -36,7 +36,7 @@ but asking the following questions, can already save some effort in the developm
 ## Readability
 
 Right from the start, everything should be written in such a way to promote readability. From the highest level, e.g. modules, to function level,
-it should tell a story of what is happening. Variable names, and function parameters should further promote in telling this story.
+it should tell a story of what is happening. Variable names and function parameters should further promote in telling this story.
 A tedious function can quickly become unreadable when this ideology is not followed:
 
 !!! failure "What is going on?"
@@ -55,11 +55,7 @@ combined with specific syntax from other libraries, like Numpy or Pandas...
 ??? success "Oh ..."
 
     ```python
-    def calculate_total(cart: list[dict[str, int]], discount: float = 0) -> float:
-        """
-        Calculate the total price of the items in the shopping cart, and apply the discount rate.
-        """
-    
+    def calculate_total(cart, discount) -> float:
         if not cart:
             raise ValueError("Cart cannot be empty.")
         if not (0 <= discount <= 1):
@@ -71,7 +67,7 @@ combined with specific syntax from other libraries, like Numpy or Pandas...
         return total
     ```
 
-The profound difference in readability can clearly be seen. Even when codes solve more complex problems,
+The profound difference in readability can be seen. Even when code solves abstract problems, like mathematics,
 it can maintain its readability when sufficient effort is put in. A warning sign is when functions require more and more comments to make sense.
 This is usually a good moment to refactor the original function into smaller ones with a specific purpose, review the design, etc.
 
@@ -92,37 +88,36 @@ discussions about code style. "Should we use spaces between mathematical operati
 Fortunately, as Python is a mature language, most of this has already been figured out. Guidelines exist known as the [Python Enhancement Proposals](https://peps.python.org/) (PEP).
 
 [PEP 8](https://peps.python.org/pep-0008/) focuses on code style, and packages exist which automatically enforce these guidelines.
-However, many good practices are not covered by these packages, and are often learnt through experience. 
+However, many good practices are not covered by these packages and are often learnt through experience. 
 The following examples highlight these with a Python snippet:
 
-1. The use of visual clustering, so that parts of the code that “belong” together are easily recognisable:
+1. The use of visual clustering so that parts of the code that “belong” together are easily recognisable:
 
     !!! failure "No clustering"
          
          ```python
-         def calculate_total(cart, discount_rate):
+         def calculate_total(cart, discount):
             if not cart:
                raise ValueError("Cart cannot be empty.")
-            if not (0 <= discount_rate <= 1):
-               raise ValueError("Discount rate must be between 0 and 1.")
             subtotal = sum(item['price'] * item['quantity'] for item in cart)
-            discount = subtotal * discount_rate
-            total = subtotal - discount
+            if not (0 <= discount <= 1):
+               raise ValueError("Discount rate must be between 0 and 1.")
+            total = (1 - discount) * subtotal
             return total
          ```
     
-    Each cluster could be seperated by comment, however, when written properly, these comments are often not needed.
+    Each cluster could be separated by a comment. However, when written properly, these comments are often not needed.
     In the example below, these (redundant) comments are given to illustrate the effect of clustering.
     
     ??? success "Clustered"
          
          ```python
-         def calculate_total(cart, discount_rate):
+         def calculate_total(cart, discount):
             
             # check inputs
             if not cart:
                raise ValueError("Cart cannot be empty.")
-            if not (0 <= discount_rate <= 1):
+            if not (0 <= discount <= 1):
                raise ValueError("Discount rate must be between 0 and 1.")
             
             # calculate totals
@@ -202,58 +197,9 @@ The following examples highlight these with a Python snippet:
         
             Don't attempt to understand this code, life is too short! Make a respectiful comment to the developer about the code style instead.
 
-4. Logical flow of classes and/or functions:
+4.  The use of descriptive names:
 
-    !!! failure "random order"
-
-        ```python
-        def main():
-            helper_1()
-            helper_2()
-
-        def helper_2():
-            helper_3()
-            helper_4()
-
-        def helper_3():
-            pass
-        
-        def helper_1():
-            pass
-
-        def helper_4():
-            pass
-        ```
-    
-    ??? success "ordered"
-
-        ```python
-        def main():
-            helper_1()
-            helper_2()
-
-        def helper_1():
-            pass
-
-        def helper_2():
-            helper_3()
-            helper_4()
-
-        def helper_3():
-            pass
-
-        def helper_4():
-            pass
-        ```
-    
-    !!! note
-        
-        In classes there is the extra element of different method types, e.g. a class method after a static method.
-        There is no right or wrong in mixing, as long as it makes sense to the reader.
-
-5. The use of descriptive names:
-
-    Especially when coding mathematics, it is tempting to fall back to their mathematical descriptors. Take the function for dynamic pressure for example:
+    Especially when coding mathematics, it is tempting to fall back to their mathematical descriptors. Take the function for dynamic pressure, for example:
 
     !!! example "Dynamic pressure"
     
@@ -261,7 +207,7 @@ The following examples highlight these with a Python snippet:
         p = \frac{1}{2} * \rho * V^2
         $$
     
-    How to code this? It matters on the context. If it is software coded by mainly physicists for other physicists in the same field,
+    How to code this? It depends on the context. If it is software coded mainly by physicists for other physicists in the same field,
     falling back to the mathematical descriptors could be acceptable (whilst using a descriptive function name):
     
     !!! example "Mathematical code"
@@ -294,11 +240,60 @@ The following examples highlight these with a Python snippet:
     There are countless examples where abbreviated variable names cause confusion, and contests actually exist in which to write the most incomprehensible code as possible,
     but this is usually not desired in the working environment. 
 
+5.  Logical flow of classes and/or functions:
+
+    !!! failure "random order"
+    
+        ```python
+        class Simulation:
+
+            def __init__(self):
+                pass
+
+            def generate_results(self):
+                pass
+
+            def run_simulation(self):
+                pass
+
+            def get_config(self):
+                pass
+
+            def prepare_simulation(self):
+                pass
+        ```
+    
+    ??? success "ordered"
+
+        ```python
+        class Simulation:
+
+            def __init__(self):
+                pass
+
+            def get_config(self):
+                pass
+
+            def prepare_simulation(self):
+                pass
+
+            def run_simulation(self):
+                pass
+
+            def generate_results(self):
+                pass
+        ```
+    
+    !!! note
+        
+        In classes there is the extra element of different method types, e.g. a class method after a static method.
+        There is no right or wrong in mixing, as long as it makes sense to the reader.
+
 ## Quality
 
 Next to the styling and readability, the actual quality of the code is of importance as well. This can range from unnecessary duplication, 
 unused variables, to more error-prone mistakes, like re-declaring the same variable with a different type. 
-This would be difficult to achieve in a statically-typed language like C++, but is allowed in a dynamically-typed language like Python. 
+This would be difficult to achieve in a statically typed language like C++, but is allowed in a dynamically typed language like Python. 
 
 Various tools exist to help improve the code quality, and mature teams usually have these checks enforced. For Python,
 a tool like [Pylint](https://www.pylint.org/) can help identify "[code smells](https://refactoring.guru/refactoring/smells)" and most IDEs have built-in quality checks as well.
@@ -350,20 +345,16 @@ Each parameter and return value should be type-hinted, and cases when it can be 
 !!! example "Type-hinting"
 
     ```python
-    class MyClass:
-   
-        def __init__(self, a: int, b: int) -> None:
-            self.a = a
-            self.b = b
-            self.c: list[int] = []
-       
-        def my_method(self, c: int) -> int:
-            self.c.append(c)
-            return self.a + self.b + sum(self.c)
-   
-   
-    def my_function(my_class: MyClass) -> None:
-        print(my_class.a + my_class.b)
+    def calculate_total(cart: dict[str, int], discount: float) -> float:
+        if not cart:
+           raise ValueError("Cart cannot be empty.")
+        if not (0 <= discount <= 1):
+           raise ValueError("Discount rate must be between 0 and 1.")
+
+        subtotal = sum(item["price"] * item["quantity"] for item in cart)
+        total = (1 - discount) * subtotal
+
+        return total
     ```
 
 [Mypy](https://mypy.readthedocs.io/en/stable/#) can be used for both checking type-hinting and explanations as to why certain variables are incorrectly typed.
@@ -374,13 +365,13 @@ Sometimes, it can be an arduous job to correctly type-hint code (especially with
 Certain elements should always be in a docstring, namely:
 
 - A brief description of what the function does.
-- What are the inputs, their type, with a brief description.
+- What are the inputs, their type? Preferably with a brief description.
 - What does the function return, if anything?
 
 Optionally, it is nice to have:
 
 - A list of the errors which can be raised with their description.
-- If the docstring start to turn into a story, or if it simply cannot be properly described with text alone, it is recommended to include a "See Also" section.
+- If the docstring starts to turn into a story, or if it simply cannot be properly described with text alone, it is recommended to include a "See Also" section.
 It can contain a link to the design documentation, research paper, etc.
 - Examples of what the function calculates based on the inputs, e.g.:
 

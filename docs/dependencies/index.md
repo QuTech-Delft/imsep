@@ -10,7 +10,7 @@
 ## Dependencies
 
 When working on new software, it is common to re-use existing software from others to cover certain functionalities.
-These pieces of software are known as dependencies. When mismanaged, this can lead to unforeseen problems, either during development,
+These pieces of software are known as dependencies. When mismanaged, this can lead to unforeseen problems, either during development
 or for the user. This mismanagement can come in different levels, each of which is described with an example below.
 
 !!! example "No management"
@@ -18,7 +18,7 @@ or for the user. This mismanagement can come in different levels, each of which 
     Imagine receiving a script from a friend, without any information on what's required to run it. By manually digging through the libraries used,
     the script can finally be run, but apparently only on a MacBook.
 
-The first level doesn't apply any form of management. Any form of automation will be impossible, and to get it to run manually, can be quite a hassle.
+The first level doesn't apply any form of management. Any form of automation will be impossible, and to get it to run manually can be quite a hassle.
 
 !!! example "Some management"
 
@@ -26,15 +26,15 @@ The first level doesn't apply any form of management. Any form of automation wil
     and that it needs at least Python `3.10`. It doesn't say if it will run on the latest version. Getting the script to run is far easier,
     but it runs into an error saying "the 'out' argument in 'maximum' is deprecated".
 
-The second level gives the required dependencies, but doesn't say anything about the versions. Depending on the maturity level of the project,
-this might be sufficient, but could lead to a mismatch in the version used in development, and the one the user installs. 
+The second level gives the required dependencies but doesn't say anything about the versions. Depending on the maturity level of the project,
+this might be enough, but could lead to a mismatch in the version used in development and the one the user installs. 
 
 !!! example "Fully managed"
 
     As it turns out, the "Numpy" dependency should be at least version `2.0`, but no larger than `2.3`, and the script cannot be run on
     Windows machines. Tests for the latest Python builds fail, so `3.13` is the current maximum.
 
-On the fully-managed level, both the lower and upper limits of the dependencies are given. Additional constraints, like an OS-specific dependency,
+On the fully managed level, both the lower and upper limits of the dependencies are given. Additional constraints, like an OS-specific dependency,
 can usually be defined in a [package manager](./package-managers.md) as well.
 
 !!! example "Easily breakable dependency"
@@ -42,8 +42,8 @@ can usually be defined in a [package manager](./package-managers.md) as well.
     The list also mentions another dependency from an individual. The repository needs to be cloned, and set to a specific version,
     otherwise the code build for the current Linux distribution will fail.
 
-The fully-managed level could still contain easily breakable dependencies. Either they are updated infrequently, or simply lack quality.
-When adding new dependencies to a code base, it is worth the effort to check the repository for potential red flags.
+The fully managed level could still contain easily breakable dependencies. Either they are updated infrequently or simply lack quality.
+When adding new dependencies to a code base, it is worth the effort checking the repository for potential red flags.
 This can show in the form of failing builds, incomplete test coverage, inconsistent versioning, etc.
 
 !!! tip "Question"
@@ -82,8 +82,8 @@ python3 --version
 ```
 
 This Python command runs via the system interpreter. From this interpreter, a virtual environment can be created. 
-It has the same Python version as the system interpreter, but does not include pre-installed packages. Within this isolated environment,
-dependencies can be easily managed. Once it is no longer needed, the environment can be removed without leaving traces.
+It has the same Python version as the system interpreter but does not include pre-installed packages. Within this isolated environment,
+dependencies can be easily managed. Once it is no longer necessary, the environment can be removed without leaving traces.
 A virtual environment can be created with the following command:
 
 ```shell
@@ -123,8 +123,8 @@ rm --recursive ~/workshop/venv
 
 ### Virtual environments on Windows
 
-On Windows, the sequence of events is identical, only the syntax differs slightly. In Bash, each Python version has its own command,
-e.g. `python3`. Once the environment is activated, the `python` command works. In PowerShell, this is always `python`, linking to a specific
+On Windows, the syntax differs slightly, but the sequence of events is identical. In Bash, each Python version has its own command, e.g. `python3`. 
+Once the environment is activated, the `python` command works. In PowerShell, this is always `python`, linking to a specific
 Python version. Using the same snippets from the previous section, with their PowerShell equivalent:
 
 1. Python commands:
