@@ -1,12 +1,24 @@
-[tool.poetry]
-package-mode = false
+[project]
+name = "imsep"
+version = "0.1.0"
+description = "Source material for the 'Introduction to Modern Software Engineering Practices' workshop."
+requires-python = ">=3.11"
+dependencies = [
+    "typer (>=0.27.0,<0.28.0)",
+    "mypy (>=2.3.0,<3.0.0)"
+]
 
-[tool.poetry.dependencies]
-python = ">= 3.12, <3.15"
-poetry = "^2.2"
+[project.scripts]
+seplings = "imsep.main:app"
+
+[tool.poetry.group.dev.dependencies]
 mkdocs = "^1.6"
 mkdocs-exclude = "^1.0"
 mkdocs-glightbox = "^0.5"
 mkdocs-material = "^9.6"
 mkdocs-material-extensions = "^1.3"
 pymdown-extensions = "^10.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

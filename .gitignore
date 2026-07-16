@@ -1,1 +1,9 @@
+# Git folder
+/.git
+
+# PyCharm folder
 /.idea
+
+# Seplings
+/exercises
+/dist
