@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-seplings = "imsep.main:app"
+seplings = "seplings.main:app"
 
 [tool.poetry.group.dev.dependencies]
 mkdocs = "^1.6"

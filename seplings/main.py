@@ -11,7 +11,7 @@ app = Typer()
 
 @app.command()
 def init() -> None:
-    source = Path(files(anchor="imsep")) / "exercises"
+    source = Path(files(anchor="seplings")) / "exercises"
     destination = Path.cwd() / "exercises"
 
     try:
@@ -68,7 +68,7 @@ def run(module: str = Argument(..., help="Exercise module to run.")) -> None:
         success, details = check(exercise=exercise)
 
         if not success:
-            print(f"\n ❌ Exercise {i + 1}: {choice(insults)}")
+            print(f"\n ❌ Exercise {i + 1}: {choice(insults)} \n")
             print(details)
             exit(1)
         else:
