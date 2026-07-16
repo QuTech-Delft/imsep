@@ -5,7 +5,7 @@ description = "Source material for the 'Introduction to Modern Software Engineer
 requires-python = ">=3.11"
 dependencies = [
     "typer (>=0.27.0,<0.28.0)",
-    "mypy (>=2.3.0,<3.0.0)"
+    "mypy (>=2.3.0,<3.0.0)",
 ]
 
 [project.scripts]
