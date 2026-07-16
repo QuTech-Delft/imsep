@@ -1,12 +1,10 @@
-from importlib.resources.abc import Traversable
-
 from typer import Typer, Argument
 from pathlib import Path
 from random import choice
 from importlib.resources import files
 from shutil import copytree
 
-from imsep.validators import check
+from seplings.validators import check
 
 app = Typer()
 
@@ -57,6 +55,7 @@ def run(module: str = Argument(..., help="Exercise module to run.")) -> None:
         "Perhaps consider a different line of work.",
         "This cannot possibly be the instructor's fault.",
         "Never don't give up.",
+        "Your failure will inspire others."
     ]
 
     try:

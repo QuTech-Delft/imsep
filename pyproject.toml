@@ -1,5 +1,5 @@
 [project]
-name = "imsep"
+name = "seplings"
 version = "0.1.0"
 description = "Source material for the 'Introduction to Modern Software Engineering Practices' workshop."
 requires-python = ">=3.11"
