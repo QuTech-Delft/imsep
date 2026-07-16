@@ -26,6 +26,7 @@ def init() -> None:
 @app.command()
 def run(module: str = Argument(..., help="Exercise module to run.")) -> None:
     module_path = Path.cwd() / "exercises" / module
+
     compliments = [
         "Nice work!",
         "Well done!",
@@ -37,8 +38,6 @@ def run(module: str = Argument(..., help="Exercise module to run.")) -> None:
         "Fantastic!",
         "Perfect!",
         "Impressive!",
-        "Great choice!",
-        "Clever idea!",
         "Nicely done!",
         "Smooth!",
         "Spot on!",
@@ -48,14 +47,27 @@ def run(module: str = Argument(..., help="Exercise module to run.")) -> None:
         "Nailed it!",
         "Outstanding!",
     ]
+
     insults = [
         "Sad times.",
         "Have you tried turning it off and on again?",
         "You will be an excellent vibe coder!",
         "Perhaps consider a different line of work.",
-        "This cannot possibly be the instructor's fault.",
         "Never don't give up.",
-        "Your failure will inspire others."
+        "Your failure will inspire others.",
+        "Confidence was not the issue.",
+        "An educational experience.",
+        "Reality intervened.",
+        "That could have gone better.",
+        "Hope was temporary.",
+        "You found another way not to.",
+        "Excellence was unavailable.",
+        "Task failed successfully.",
+        "Your optimism was misplaced.",
+        "You fought the odds. The odds won.",
+        "You have a unique relationship with success.",
+        "You almost exceeded expectations.",
+        "We ran out of encouraging things to say."
     ]
 
     try:
